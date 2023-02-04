@@ -1,7 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/components/account_options.dart';
 
 class UserAccount extends StatelessWidget {
   const UserAccount({super.key});
+
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +15,7 @@ class UserAccount extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.only(left: 13, right: 14, top: 4),
         margin: EdgeInsets.only(top: 37),
-        color: Colors.red,
+        // color: Colors.red,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -17,24 +23,108 @@ class UserAccount extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_back,
               ),
             ),
             Container(
               alignment: Alignment.center,
               padding: EdgeInsets.all(30),
-              height: 300,
-              color: Colors.yellow,
+              height: 290,
+              // color: Colors.yellow,
               width: double.infinity,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    // child: Image.asset('asset/images/pizza.jpeg'),
-                    radius: 66,
-                    backgroundImage: AssetImage('asset/images/pizza.jpeg'),
+                    radius: 86,
+                    backgroundImage: NetworkImage(
+                      'https://i.pinimg.com/736x/d0/7a/f6/d07af684a67cd52d2f10acd6208db98f.jpg',
+                    ),
+                  ),
+
+                  //--------------------------------------------------------
+                  /// ----this container is doing the same circleavatar work
+                  // Container(
+                  //   height: 180,
+                  //   width: 180,
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(106),
+                  //     color: Colors.blue,
+                  //     image: DecorationImage(
+                  //         image: NetworkImage(
+                  //             'https://i.pinimg.com/736x/d0/7a/f6/d07af684a67cd52d2f10acd6208db98f.jpg'),
+                  //         fit: BoxFit.cover),
+                  //   ),
+                  // )
+                  ///------------------------------------------
+                  ///
+                  SizedBox(
+                    height: 14,
+                  ),
+                  Text(
+                    'Ashish',
+                    style: TextStyle(
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '+919142552948',
+                    style: TextStyle(
+                      fontSize: 16,
+                      // fontWeight: FontWeight.bold,
+                    ),
                   )
                 ],
+              ),
+            )
+
+            // now this is for my account detail
+            ,
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    AccountOptions(text: "My Profile"),
+                    AccountOptions(text: 'Change Password'),
+                    AccountOptions(text: 'My voucher'),
+                    AccountOptions(text: 'Notification'),
+                    AccountOptions(text: 'About Us'),
+                    AccountOptions(text: 'Contact Us'),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 60,
+                      margin: EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                      ),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(22),
+                        color: Colors.grey[400],
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          signUserOut();
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text(
+                          "Sign Out",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                // color: Colors.green,
               ),
             )
           ],
