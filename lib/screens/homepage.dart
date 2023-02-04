@@ -2,8 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:food_delivery_app/components/food_category.dart';
+import 'package:food_delivery_app/components/search_bar.dart';
 import 'package:food_delivery_app/screens/user_account.dart';
 import 'package:food_delivery_app/widgets/food_category.dart';
+import 'package:food_delivery_app/widgets/popular_food.dart';
+
+import '../components/appbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -18,193 +24,124 @@ class HomePage extends StatelessWidget {
         height: double.infinity,
         child: Column(
           children: [
-            //this is for location and account part
             Container(
-              margin: EdgeInsets.only(top: 40),
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.location_on, size: 34),
-                          Column(
-                            children: [
-                              Text(
-                                'Town',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 19),
-                              ),
-                              Text(
-                                'City',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                  Container(
-                    height: 45,
-                    width: 45,
-                    child: Center(
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const UserAccount(),
-                            ),
-                          );
-                        },
-                        child: Icon(
-                          Icons.account_circle,
-                          size: 38,
-                        ),
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Color.fromARGB(255, 190, 182, 177),
-                    ),
-                  )
-                ],
-              ),
+              height: 39,
+              // color: Colors.red,
             ),
+            //this is for location and account part
+            // const Appbar(),
 
             //for search bar
-            Container(
-              padding: EdgeInsets.all(23),
-              child: Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                // width: double.infinity,
-                height: 45,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Color.fromARGB(255, 229, 231, 229),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                      color: Colors.grey.withOpacity(0.5),
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(
-                      Icons.search,
-                      color: Colors.redAccent,
-                      size: 30,
-                    ),
-                    Text(
-                      'Search dishes',
-                      style: TextStyle(
-                        fontSize: 23,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Row(
-                      children: [
-                        VerticalDivider(
-                          color: Colors.grey,
-                          indent: 6,
-                          endIndent: 7,
-                        ),
-                        Icon(
-                          Icons.mic,
-                          color: Colors.redAccent,
-                          size: 39,
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            // const SearchBar(),
 
             // Categoris part
-            Container(
-              // padding: EdgeInsets.only(left: 10),
-              height: MediaQuery.of(context).size.height * 0.265,
-              // color: Colors.red,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            // const FoodCategoryPart(),
+
+            // Popular food
+
+            // Container(
+            //   margin: EdgeInsets.only(left: 15),
+            //   alignment: Alignment.topLeft,
+            //   color: Colors.green,
+            //   child: Text(
+            //     'Popular Food',
+            //     style: TextStyle(fontSize: 21),
+            //   ),
+            // ),
+
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.zero,
                 children: [
-                  //categori
-                  const Padding(
-                    padding: EdgeInsets.only(left: 14),
+                  /// user account and location
+                  const Appbar(),
+
+                  /// search option
+                  const SearchBar(),
+                  //Foood categories
+                  const FoodCategoryPart(),
+
+                  Container(
+                    margin: EdgeInsets.only(left: 15),
+                    alignment: Alignment.topLeft,
+                    // color: Colors.green,
                     child: Text(
-                      'Categories',
+                      'Popular Food',
                       style: TextStyle(
-                          color: Color.fromARGB(167, 2, 2, 2), fontSize: 23),
+                          fontSize: 21, color: Color.fromARGB(167, 2, 2, 2)),
                     ),
                   ),
-                  // list
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: const [
-                        FoodCategory(
-                          image: 'asset/images/burger1.jpg',
-                          name: "Burger",
-                        ),
-                        FoodCategory(
-                          image: 'asset/images/biryani1.jpg',
-                          name: "Biryani",
-                        ),
-                        FoodCategory(
-                          image: 'asset/images/pizza2.jpg',
-                          name: "Pizza",
-                        ),
-                        FoodCategory(
-                          image: 'asset/images/chicken.jpg',
-                          name: "Chicken",
-                        ),
-                        FoodCategory(
-                            image: 'asset/images/friedrice1.jpg',
-                            name: "Fried Rice"),
-                        FoodCategory(
-                            image: 'asset/images/cake1.jpg', name: "Cake"),
-                        FoodCategory(
-                            image: 'asset/images/dosa1.jpg', name: "Dosa"),
-                      ],
-                    ),
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  PopularFood(
+                    image: 'asset/images/burger.jpg',
+                    name: 'HamBurger',
+                    description: "Cheesy Mozarelly",
+                    rate: '\$22.7',
+                    rating: 3,
+                  ),
+                  PopularFood(
+                    image: 'asset/images/biryani1.jpg',
+                    name: 'Egg Biryani',
+                    description: "With Curd Raitha",
+                    rate: '\$12.7',
+                    rating: 4,
+                  ),
+                  PopularFood(
+                    image: 'asset/images/chicken.jpg',
+                    name: 'CrumyChiken',
+                    description: "Spicy Gravy",
+                    rate: '\$32.7',
+                    rating: 5,
+                  ),
+                  PopularFood(
+                    image: 'asset/images/pizza.jpeg',
+                    name: 'CruncyPizza',
+                    description: "Cheesy Batter",
+                    rate: '\$25.7',
+                    rating: 3.5,
                   ),
                 ],
               ),
             ),
 
-            // Popular food
-            Container(
-              alignment: Alignment.topLeft,
-              // padding: EdgeInsets.all(10),
-              margin: EdgeInsets.only(left: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Popular Food',
-                    style: TextStyle(
-                      fontSize: 23,
-                      color: Color.fromARGB(167, 2, 2, 2),
-                    ),
-                  ),
-                  ListView(
-                    shrinkWrap: true,
-                  )
-                ],
-              ),
-            ),
+            // Expanded(
+            //   child: Container(
+            //     alignment: Alignment.topLeft,
+            //     // padding: EdgeInsets.all(10),
+            //     margin: EdgeInsets.only(left: 10),
+            //     child: Column(
+            //       crossAxisAlignment: CrossAxisAlignment.start,
+            //       // mainAxisAlignment: MainAxisAlignment.start,
+            //       children: [
+            //         const Text(
+            //           'Popular Food',
+            //           style: TextStyle(
+            //             fontSize: 23,
+            //             color: Color.fromARGB(167, 2, 2, 2),
+            //           ),
+            //         ),
+            //         ListView(
+            //           // shrinkWrap: true,
+            //           children: [
+            //             Container(
+            //               height: 200,
+            //               margin: EdgeInsets.all(10),
+            //               color: Colors.red,
+            //             ),
+            //             Container(
+            //               height: 200,
+            //               margin: EdgeInsets.all(10),
+            //               color: Colors.red,
+            //             ),
+            //           ],
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
