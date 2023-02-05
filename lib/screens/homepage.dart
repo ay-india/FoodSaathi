@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:food_delivery_app/components/food_category.dart';
 import 'package:food_delivery_app/components/search_bar.dart';
+import 'package:food_delivery_app/screens/product_page.dart';
 import 'package:food_delivery_app/screens/user_account.dart';
 import 'package:food_delivery_app/widgets/food_category.dart';
 import 'package:food_delivery_app/widgets/popular_food.dart';
@@ -76,6 +77,14 @@ class HomePage extends StatelessWidget {
                   ),
 
                   PopularFood(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductPage(),
+                        ),
+                      );
+                    },
                     image: 'asset/images/burger.jpg',
                     name: 'HamBurger',
                     description: "Cheesy Mozarelly",
@@ -83,6 +92,7 @@ class HomePage extends StatelessWidget {
                     rating: 3,
                   ),
                   PopularFood(
+                    onTap: () {},
                     image: 'asset/images/biryani1.jpg',
                     name: 'Egg Biryani',
                     description: "With Curd Raitha",
@@ -90,6 +100,7 @@ class HomePage extends StatelessWidget {
                     rating: 4,
                   ),
                   PopularFood(
+                    onTap: () {},
                     image: 'asset/images/chicken.jpg',
                     name: 'CrumyChiken',
                     description: "Spicy Gravy",
@@ -97,6 +108,7 @@ class HomePage extends StatelessWidget {
                     rating: 5,
                   ),
                   PopularFood(
+                    onTap: () {},
                     image: 'asset/images/pizza.jpeg',
                     name: 'CruncyPizza',
                     description: "Cheesy Batter",
