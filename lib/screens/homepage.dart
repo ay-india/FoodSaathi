@@ -92,7 +92,14 @@ class HomePage extends StatelessWidget {
                     rating: 3,
                   ),
                   PopularFood(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductPage(),
+                        ),
+                      );
+                    },
                     image: 'asset/images/biryani1.jpg',
                     name: 'Egg Biryani',
                     description: "With Curd Raitha",
@@ -100,7 +107,14 @@ class HomePage extends StatelessWidget {
                     rating: 4,
                   ),
                   PopularFood(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductPage(),
+                        ),
+                      );
+                    },
                     image: 'asset/images/chicken.jpg',
                     name: 'CrumyChiken',
                     description: "Spicy Gravy",
@@ -108,7 +122,14 @@ class HomePage extends StatelessWidget {
                     rating: 5,
                   ),
                   PopularFood(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductPage(),
+                        ),
+                      );
+                    },
                     image: 'asset/images/pizza.jpeg',
                     name: 'CruncyPizza',
                     description: "Cheesy Batter",

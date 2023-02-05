@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:food_delivery_app/screens/cart_page.dart';
 import 'package:food_delivery_app/screens/user_account.dart';
 
 class ProductPage extends StatefulWidget {
@@ -29,13 +30,28 @@ class _ProductPageState extends State<ProductPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                Icons.arrow_back,
-                size: 33,
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  size: 33,
+                ),
               ),
-              Icon(
-                Icons.shopping_cart,
-                size: 33,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartPage(),
+                    ),
+                  );
+                },
+                child: Icon(
+                  Icons.shopping_cart,
+                  size: 33,
+                ),
               ),
             ],
           ),
@@ -93,12 +109,14 @@ class _ProductPageState extends State<ProductPage> {
                             '300g/530kcal',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              fontSize: 16,
                             ),
                           ),
                           Text(
                             '1 portion',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              fontSize: 16,
                             ),
                           ),
                         ],
@@ -115,8 +133,8 @@ class _ProductPageState extends State<ProductPage> {
                   padding: EdgeInsets.only(
                     left: 20,
                     right: 20,
-                    top: 15,
-                    bottom: 15,
+                    top: 13,
+                    bottom: 13,
                   ),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -161,7 +179,7 @@ class _ProductPageState extends State<ProductPage> {
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                       ),
-                      TextButton(
+                      ElevatedButton(
                         onPressed: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -174,7 +192,7 @@ class _ProductPageState extends State<ProductPage> {
                               ),
                             ),
                             SizedBox(
-                              width: 5,
+                              width: 13,
                             ),
                             CircleAvatar(
                               child: Icon(
@@ -184,7 +202,17 @@ class _ProductPageState extends State<ProductPage> {
                             ),
                           ],
                         ),
-                        style: ButtonStyle(),
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 13,
+                            vertical: 10,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              30,
+                            ),
+                          ),
+                        ),
                       )
                     ],
                   ),
