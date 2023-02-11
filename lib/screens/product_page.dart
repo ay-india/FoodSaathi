@@ -47,6 +47,7 @@ class _ProductPageState extends State<ProductPage> {
                       builder: (context) => CartPage(),
                     ),
                   );
+                  // print(height);
                 },
                 child: Icon(
                   Icons.shopping_cart,

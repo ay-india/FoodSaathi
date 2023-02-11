@@ -7,13 +7,20 @@ import 'package:food_delivery_app/components/food_category.dart';
 import 'package:food_delivery_app/components/search_bar.dart';
 import 'package:food_delivery_app/screens/product_page.dart';
 import 'package:food_delivery_app/screens/user_account.dart';
+import 'package:food_delivery_app/utils/dimensions.dart';
 import 'package:food_delivery_app/widgets/food_category.dart';
 import 'package:food_delivery_app/widgets/popular_food.dart';
 
 import '../components/appbar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   void signOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -25,9 +32,8 @@ class HomePage extends StatelessWidget {
         height: double.infinity,
         child: Column(
           children: [
-            Container(
-              height: 39,
-              // color: Colors.red,
+            SizedBox(
+              height: 35,
             ),
             //this is for location and account part
             // const Appbar(),
@@ -84,6 +90,10 @@ class HomePage extends StatelessWidget {
                           builder: (context) => ProductPage(),
                         ),
                       );
+                      print(Dimensions.h10);
+                      print(Dimensions.h35);
+                      print(Dimensions.w10);
+                      print(Dimensions.w15);
                     },
                     image: 'asset/images/burger.jpg',
                     name: 'HamBurger',
@@ -129,6 +139,7 @@ class HomePage extends StatelessWidget {
                           builder: (context) => ProductPage(),
                         ),
                       );
+                      print(MediaQuery.of(context).size.width);
                     },
                     image: 'asset/images/pizza.jpeg',
                     name: 'CruncyPizza',
