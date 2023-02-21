@@ -1,6 +1,4 @@
 # Miscellaneous
-lib/firebase_options.dart
-firebase_options.dart
 *.class
 *.log
 *.pyc
@@ -33,8 +31,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-lib/firebase_options.dart
-firebase_options.dart
 
 # Symbolication related
 app.*.symbols
