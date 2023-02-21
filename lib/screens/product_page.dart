@@ -14,7 +14,6 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         body: Stack(
       children: [
@@ -25,7 +24,7 @@ class _ProductPageState extends State<ProductPage> {
             right: 12.w,
           ),
           alignment: Alignment.topLeft,
-          height: 31.h,
+          height: 39.h,
           color: Color.fromARGB(255, 221, 164, 79),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,24 +33,28 @@ class _ProductPageState extends State<ProductPage> {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Icon(
-                  Icons.arrow_back,
-                  size: 33.r,
+                child: IgnorePointer(
+                  child: Icon(
+                    Icons.arrow_back,
+                    size: 31.r,
+                  ),
                 ),
               ),
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CartPage(),
+                      builder: (context) => const CartPage(),
                     ),
                   );
-                  // print(height);
+                  print(MediaQuery.of(context).size.height);
                 },
-                child: Icon(
-                  Icons.shopping_cart,
-                  size: 33.r,
+                child: IgnorePointer(
+                  child: Icon(
+                    Icons.shopping_cart,
+                    size: 33.r,
+                  ),
                 ),
               ),
             ],
@@ -152,7 +155,7 @@ class _ProductPageState extends State<ProductPage> {
                           allowHalfRating: true,
                           itemCount: 5,
                           itemPadding: EdgeInsets.symmetric(horizontal: 4.0.w),
-                          itemBuilder: (context, _) => Icon(
+                          itemBuilder: (context, _) => const Icon(
                             Icons.star,
                             color: Colors.amber,
                           ),
@@ -181,7 +184,14 @@ class _ProductPageState extends State<ProductPage> {
                             fontWeight: FontWeight.bold),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CartPage(),
+                            ),
+                          );
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -224,13 +234,14 @@ class _ProductPageState extends State<ProductPage> {
         ),
 
         Positioned(
-            top: 117.h,
-            left:59.w,
-            child: CircleAvatar(
-              radius: 140.h,
-              // backgroundColor: Colors.blue,
-              backgroundImage: AssetImage('asset/images/burger1.jpg'),
-            ))
+          top: 119.h,
+          left: 59.w,
+          child: CircleAvatar(
+            radius: 140.h,
+            // backgroundColor: Colors.blue,
+            backgroundImage: AssetImage('asset/images/burger1.jpg'),
+          ),
+        ),
         // Column(
         //   children: [
         //     Container(

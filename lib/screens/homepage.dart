@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ import 'package:food_delivery_app/widgets/food_category.dart';
 import 'package:food_delivery_app/widgets/popular_food.dart';
 
 import '../components/appbar.dart';
+import 'cart_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -91,7 +94,6 @@ class _HomePageState extends State<HomePage> {
                           builder: (context) => ProductPage(),
                         ),
                       );
-                      
                     },
                     image: 'asset/images/burger.jpg',
                     name: 'HamBurger',
@@ -137,7 +139,6 @@ class _HomePageState extends State<HomePage> {
                           builder: (context) => ProductPage(),
                         ),
                       );
-                      
                     },
                     image: 'asset/images/pizza.jpeg',
                     name: 'CruncyPizza',
@@ -186,6 +187,17 @@ class _HomePageState extends State<HomePage> {
             // ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const CartPage(),
+            ),
+          );
+        },
+        child: Icon(Icons.shopping_cart),
       ),
     );
   }
