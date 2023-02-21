@@ -6,7 +6,7 @@ import 'package:food_delivery_app/screens/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
-
+import 'helper/dependencies.dart' as dep;
 
 int? initScreen;
 Future<void> main() async {
@@ -14,6 +14,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await dep.init();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      builder:(_,child)=> MaterialApp(
+      builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Food Saathi',
         theme: ThemeData(
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
           'onboard': (context) => Onboarding(),
         },
       ),
-      designSize: const Size(392.727,780.09),
+      designSize: const Size(392.727, 780.09),
     );
   }
 }
