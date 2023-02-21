@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/food_category.dart';
 
@@ -9,18 +10,18 @@ class FoodCategoryPart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // padding: EdgeInsets.only(left: 10),
-      height: MediaQuery.of(context).size.height * 0.265,
+      height: 207.h,
       // color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //categori
-          const Padding(
-            padding: EdgeInsets.only(left: 14),
+           Padding(
+            padding: EdgeInsets.only(left: 14.w),
             child: Text(
               'Categories',
               style:
-                  TextStyle(color: Color.fromARGB(167, 2, 2, 2), fontSize: 23),
+                  TextStyle(color: Color.fromARGB(167, 2, 2, 2), fontSize: 23.sp),
             ),
           ),
           // list

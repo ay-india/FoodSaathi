@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/widgets/food_added.dart';
 
 class CartPage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _CartPageState extends State<CartPage> {
         body: Container(
       color: Color.fromARGB(255, 245, 244, 244),
       padding: EdgeInsets.only(
-        top: 60,
+        top: 60.h,
         // left: 1,
         // right: 13,
         // bottom: 6,
@@ -24,8 +25,8 @@ class _CartPageState extends State<CartPage> {
         children: [
           Padding(
             padding: EdgeInsets.only(
-              left: 12,
-              right: 12,
+              left: 12.w,
+              right: 12.w,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +34,7 @@ class _CartPageState extends State<CartPage> {
                 InkWell(
                   child: Icon(
                     Icons.arrow_back,
-                    size: 33,
+                    size: 33.sp,
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -42,7 +43,7 @@ class _CartPageState extends State<CartPage> {
                 Text(
                   'Order Details',
                   style: TextStyle(
-                    fontSize: 27,
+                    fontSize: 27.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 )
@@ -65,36 +66,36 @@ class _CartPageState extends State<CartPage> {
             ),
           ),
           Container(
-            height: 100,
+            height: 100.h,
             width: double.infinity,
-            padding: EdgeInsets.all(4),
+            padding: EdgeInsets.all(4.sp),
             color: Color.fromARGB(255, 238, 237, 237),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
               Text(
                 'Total: \$32',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
-                height: 0,
+                height: 0.h,
               ),
               Divider(
-                thickness: 3,
-                indent: 16,
-                endIndent: 16,
+                thickness: 3.sp,
+                indent: 16.w,
+                endIndent: 16.w,
               ),
               Container(
-                margin: EdgeInsets.only(left: 15, right: 15),
+                margin: EdgeInsets.only(left: 15.w, right: 15.w),
                 alignment: Alignment.center,
-                height: 40,
+                height: 40.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.orange,
                   borderRadius: BorderRadius.circular(
-                    30,
+                    30.r,
                   ),
                 ),
                 child: Text(
@@ -102,7 +103,7 @@ class _CartPageState extends State<CartPage> {
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 23,
+                    fontSize: 23.sp,
                   ),
                 ),
               )

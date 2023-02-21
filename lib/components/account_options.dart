@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountOptions extends StatelessWidget {
   final String text;
@@ -8,17 +9,17 @@ class AccountOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        left: 2,
-        right: 3,
-        top: 3,
-        bottom: 10,
+        left: 2.w,
+        right: 3.w,
+        top: 3.h,
+        bottom: 10.h,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             text,
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 18.sp),
           ),
           Icon(
             Icons.forward,

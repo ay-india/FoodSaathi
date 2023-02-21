@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:food_delivery_app/auth/auth_service.dart';
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
           child: SingleChildScrollView(
             // physics: NeverScrollableScrollPhysics(),
             // child: ConstrainedBox(
@@ -85,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                       Text(
                         'Welcome,',
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.05,
+                          fontSize: 40.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.grey[700],
                         ),
@@ -101,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.027,
+                    height: 21.h,
                   ),
                   // Email box
                   UserAuthInput(
@@ -123,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
                         child: TextButton(
                           child: Text('Forgot Password?'),
                           onPressed: () {},
@@ -133,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   //Signin button
                   Padding(
-                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    padding:EdgeInsets.only(left: 30.w, right: 30.w),
                     child: InkWell(
                       onTap: signUserIn,
                       child: Container(
@@ -147,14 +148,14 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.orange[200],
                           border: Border.all(),
                           borderRadius: BorderRadius.circular(
-                            22,
+                            22.r,
                           ),
                         ),
                         child: Text(
                           'Log In',
                           style: TextStyle(
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.026,
+                                  20.sp,
                               fontWeight: FontWeight.bold,
                               color: Colors.black87),
                         ),
@@ -163,26 +164,26 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   //or sign in with
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
+                    height: 39.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
+                    children:  [
                       Expanded(
                         child: Divider(
-                          thickness: 1,
+                          thickness: 1.h,
                         ),
                       ),
-                      Text(' or Login via '),
+                      const Text(' or Login via '),
                       Expanded(
                         child: Divider(
-                          thickness: 1,
+                          thickness: 1.h,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
+                    height: 16.h,
                   ),
                   // google and apple authentication
                   Row(
@@ -206,10 +207,10 @@ class _LoginPageState extends State<LoginPage> {
 
                   // not a member
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
+                    height: 24.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(18.0),
+                    padding: EdgeInsets.symmetric(horizontal: 18.w,vertical: 18.h),
                     child: Row(
                       children: [
                         Text(
@@ -217,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
                           style: TextStyle(
                             // fontWeight: FontWeight.bold,
                             fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                                14.sp,
                           ),
                         ),
                         TextButton(
@@ -226,7 +227,7 @@ class _LoginPageState extends State<LoginPage> {
                             'Create an Account',
                             style: TextStyle(
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.019,
+                                 15.sp,
                             ),
                           ),
                         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../screens/user_account.dart';
 
@@ -8,8 +9,8 @@ class Appbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 15),
-      padding: EdgeInsets.only(left: 10, right: 10),
+      margin: EdgeInsets.only(top: 15.h),
+      padding: EdgeInsets.only(left: 10.w, right: 10.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -17,17 +18,17 @@ class Appbar extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(Icons.location_on, size: 34),
+                  Icon(Icons.location_on, size: 34.r),
                   Column(
                     children: [
                       Text(
                         'Town',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 19),
+                            fontWeight: FontWeight.bold, fontSize: 19.sp),
                       ),
                       Text(
                         'City',
-                        style: TextStyle(fontSize: 14),
+                        style: TextStyle(fontSize: 14.sp),
                       ),
                     ],
                   )
@@ -36,8 +37,8 @@ class Appbar extends StatelessWidget {
             ],
           ),
           Container(
-            height: 45,
-            width: 45,
+            height: 45.h,
+            width: 45.w,
             child: Center(
               child: InkWell(
                 onTap: () {
@@ -50,12 +51,12 @@ class Appbar extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.account_circle,
-                  size: 38,
+                  size: 38.r,
                 ),
               ),
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(30.r),
               color: Color.fromARGB(255, 190, 182, 177),
             ),
           )

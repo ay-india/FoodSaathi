@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/auth/auth_page.dart';
 import 'package:food_delivery_app/auth/login_page.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -19,7 +20,7 @@ class Onboarding extends StatelessWidget {
         // padding: EdgeInsets.only(top: 22),
         child: Column(
           children: [
-            const SizedBox(height: 60),
+            SizedBox(height: 60.h),
             Expanded(
               child: IntroductionScreen(
                 pages: [
@@ -69,10 +70,12 @@ class Onboarding extends StatelessWidget {
                   );
                 },
                 dotsDecorator: DotsDecorator(
-                  size: Size(15, 35),
-                  activeSize: Size(22, 10),
+                  //------------ here might be some error
+                  size: Size(15.w, 35.h),
+                  //------------- please verify here if you get any error
+                  activeSize: Size(22.w, 10.h),
                   activeShape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.r),
                   ),
                 ),
               ),

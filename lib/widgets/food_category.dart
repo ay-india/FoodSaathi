@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FoodCategory extends StatelessWidget {
   final String image;
@@ -8,10 +9,10 @@ class FoodCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.all(10).r,
       // padding: EdgeInsets.all(10),
-      height: 150,
-      width: 100,
+      height: 150.h,
+      width: 100.w,
       // color: Colors.green,
       decoration: BoxDecoration(
           // color: Colors.green,
@@ -21,19 +22,19 @@ class FoodCategory extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(3),
-            height: 100,
-            width: 140,
+            padding: EdgeInsets.all(3).r,
+            height: 100.h,
+            width: 140.w,
             decoration: BoxDecoration(
               // color: Colors.yellow,
               border: Border.all(color: Colors.grey),
               boxShadow: [
                 BoxShadow(
-                  blurRadius: 2,
+                  blurRadius: 2.r,
                   color: Colors.grey.withOpacity(0.5),
                 ),
               ],
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               image: DecorationImage(
                 image: AssetImage(image),
                 fit: BoxFit.cover,
@@ -45,7 +46,7 @@ class FoodCategory extends StatelessWidget {
             // ),
           ),
           SizedBox(
-            height: 6,
+            height: 6.h,
           ),
           // Container(
           //   height: 100,
@@ -60,7 +61,7 @@ class FoodCategory extends StatelessWidget {
 
           Text(
             name,
-            style: TextStyle(fontSize: 20, color: Color.fromARGB(167, 2, 2, 2)),
+            style: TextStyle(fontSize: 20.sp, color: Color.fromARGB(167, 2, 2, 2)),
           ),
         ],
       ),

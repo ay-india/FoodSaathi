@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/screens/cart_page.dart';
 import 'package:food_delivery_app/screens/user_account.dart';
 
@@ -13,19 +14,18 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
         body: Stack(
       children: [
         Container(
           padding: EdgeInsets.only(
-            top: height * 0.07,
-            left: width * 0.02,
-            right: width * 0.03,
+            top: 54.7.h,
+            left: 8.w,
+            right: 12.w,
           ),
           alignment: Alignment.topLeft,
-          height: height * 0.4,
+          height: 31.h,
           color: Color.fromARGB(255, 221, 164, 79),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +36,7 @@ class _ProductPageState extends State<ProductPage> {
                 },
                 child: Icon(
                   Icons.arrow_back,
-                  size: 33,
+                  size: 33.r,
                 ),
               ),
               InkWell(
@@ -51,7 +51,7 @@ class _ProductPageState extends State<ProductPage> {
                 },
                 child: Icon(
                   Icons.shopping_cart,
-                  size: 33,
+                  size: 33.r,
                 ),
               ),
             ],
@@ -61,18 +61,18 @@ class _ProductPageState extends State<ProductPage> {
         ///White Conatiner part
         Padding(
           padding: EdgeInsets.only(
-            top: 250,
+            top: 250.h,
           ),
           child: Container(
-            padding: EdgeInsets.only(top: height * 0.23),
+            padding: EdgeInsets.only(top: 180.h),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(
-                  height * 0.04,
+                  31.r,
                 ),
                 topRight: Radius.circular(
-                  height * 0.04,
+                  31.r,
                 ),
               ),
             ),
@@ -85,21 +85,21 @@ class _ProductPageState extends State<ProductPage> {
                   maxLines: 4,
                   textAlign: TextAlign.center,
                   'The meat burgers shall be palatable, have a pleasant flavour, characteristic appearance with no visible damage, objectionable colour and odour.',
-                  style: TextStyle(fontSize: 19),
+                  style: TextStyle(fontSize: 19.sp),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 30.h,
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(left: 20, right: 20, bottom: 15),
+                      EdgeInsets.only(left: 20.w, right: 20.w, bottom: 15.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Noodles',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 30.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -110,14 +110,14 @@ class _ProductPageState extends State<ProductPage> {
                             '300g/530kcal',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                           ),
                           Text(
                             '1 portion',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                           ),
                         ],
@@ -126,32 +126,32 @@ class _ProductPageState extends State<ProductPage> {
                   ),
                 ),
                 Divider(
-                  indent: 10,
-                  endIndent: 10,
-                  thickness: 3,
+                  indent: 10.w,
+                  endIndent: 10.w,
+                  thickness: 3.h,
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                    left: 20,
-                    right: 20,
-                    top: 13,
-                    bottom: 13,
+                    left: 20.w,
+                    right: 20.w,
+                    top: 13.h,
+                    bottom: 13.h,
                   ),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           '1.3 km from you',
-                          style: TextStyle(fontSize: 17),
+                          style: TextStyle(fontSize: 17.sp),
                         ),
                         RatingBar.builder(
-                          itemSize: 24,
+                          itemSize: 24.r,
                           initialRating: 3,
                           minRating: 1,
                           direction: Axis.horizontal,
                           allowHalfRating: true,
                           itemCount: 5,
-                          itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                          itemPadding: EdgeInsets.symmetric(horizontal: 4.0.w),
                           itemBuilder: (context, _) => Icon(
                             Icons.star,
                             color: Colors.amber,
@@ -163,20 +163,20 @@ class _ProductPageState extends State<ProductPage> {
                       ]),
                 ),
                 Divider(
-                  indent: 10,
-                  endIndent: 10,
+                  indent: 10.w,
+                  endIndent: 10.w,
                   thickness: 3,
                 ),
                 // amount section and add to cart button
                 Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 15),
+                  padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 15.h),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         '\$7.63',
                         style: TextStyle(
-                            fontSize: 19,
+                            fontSize: 19.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                       ),
@@ -189,11 +189,11 @@ class _ProductPageState extends State<ProductPage> {
                               'Add to Cart',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 17,
+                                fontSize: 17.sp,
                               ),
                             ),
                             SizedBox(
-                              width: 13,
+                              width: 13.h,
                             ),
                             CircleAvatar(
                               child: Icon(
@@ -205,12 +205,12 @@ class _ProductPageState extends State<ProductPage> {
                         ),
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 13,
-                            vertical: 10,
+                            horizontal: 13.w,
+                            vertical: 10.h,
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
-                              30,
+                              30.r,
                             ),
                           ),
                         ),
@@ -224,10 +224,10 @@ class _ProductPageState extends State<ProductPage> {
         ),
 
         Positioned(
-            top: height * 0.15,
-            left: width * 0.15,
+            top: 117.h,
+            left:59.w,
             child: CircleAvatar(
-              radius: height * .18,
+              radius: 140.h,
               // backgroundColor: Colors.blue,
               backgroundImage: AssetImage('asset/images/burger1.jpg'),
             ))

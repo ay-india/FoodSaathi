@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/components/account_options.dart';
 
 class UserAccount extends StatelessWidget {
@@ -13,8 +14,8 @@ class UserAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(left: 13, right: 14, top: 4),
-        margin: EdgeInsets.only(top: 37),
+        padding: EdgeInsets.only(left: 13.w, right: 14.w, top: 4.h),
+        margin: EdgeInsets.only(top: 37.h),
         // color: Colors.red,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,15 +30,15 @@ class UserAccount extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.all(30),
-              height: 290,
+              padding: EdgeInsets.all(30.r),
+              height: 290.h,
               // color: Colors.yellow,
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 86,
+                    radius: 86.r,
                     backgroundImage: NetworkImage(
                       'https://i.pinimg.com/736x/d0/7a/f6/d07af684a67cd52d2f10acd6208db98f.jpg',
                     ),
@@ -60,19 +61,19 @@ class UserAccount extends StatelessWidget {
                   ///------------------------------------------
                   ///
                   SizedBox(
-                    height: 14,
+                    height: 14.h,
                   ),
                   Text(
                     'Ashish',
                     style: TextStyle(
-                      fontSize: 21,
+                      fontSize: 21.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     '+919142552948',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       // fontWeight: FontWeight.bold,
                     ),
                   )
@@ -84,7 +85,7 @@ class UserAccount extends StatelessWidget {
             ,
             Expanded(
               child: Container(
-                padding: EdgeInsets.all(15),
+                padding: EdgeInsets.all(15.r),
                 child: Column(
                   children: [
                     AccountOptions(text: "My Profile"),
@@ -94,18 +95,18 @@ class UserAccount extends StatelessWidget {
                     AccountOptions(text: 'About Us'),
                     AccountOptions(text: 'Contact Us'),
                     SizedBox(
-                      height: 30,
+                      height: 30.h,
                     ),
                     Container(
                       alignment: Alignment.center,
-                      height: 60,
+                      height: 60.h,
                       margin: EdgeInsets.only(
                         left: 20,
                         right: 20,
-                      ),
+                      ).w,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(22),
+                        borderRadius: BorderRadius.circular(22.r),
                         color: Colors.grey[400],
                       ),
                       child: InkWell(
@@ -113,10 +114,10 @@ class UserAccount extends StatelessWidget {
                           signUserOut();
                           Navigator.of(context).pop();
                         },
-                        child: const Text(
+                        child:  Text(
                           "Sign Out",
                           style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 25.sp,
                               fontWeight: FontWeight.bold,
                               color: Colors.black54),
                         ),

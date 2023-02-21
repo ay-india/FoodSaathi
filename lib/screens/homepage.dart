@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/components/food_category.dart';
 import 'package:food_delivery_app/components/search_bar.dart';
 import 'package:food_delivery_app/screens/product_page.dart';
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             SizedBox(
-              height: 35,
+              height: 35.h,
             ),
             //this is for location and account part
             // const Appbar(),
@@ -69,17 +70,17 @@ class _HomePageState extends State<HomePage> {
                   const FoodCategoryPart(),
 
                   Container(
-                    margin: EdgeInsets.only(left: 15),
+                    margin: EdgeInsets.only(left: 15.w),
                     alignment: Alignment.topLeft,
                     // color: Colors.green,
                     child: Text(
                       'Popular Food',
                       style: TextStyle(
-                          fontSize: 21, color: Color.fromARGB(167, 2, 2, 2)),
+                          fontSize: 21.sp, color: Color.fromARGB(167, 2, 2, 2)),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
 
                   PopularFood(
@@ -90,10 +91,7 @@ class _HomePageState extends State<HomePage> {
                           builder: (context) => ProductPage(),
                         ),
                       );
-                      print(Dimensions.h10);
-                      print(Dimensions.h35);
-                      print(Dimensions.w10);
-                      print(Dimensions.w15);
+                      
                     },
                     image: 'asset/images/burger.jpg',
                     name: 'HamBurger',
@@ -139,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                           builder: (context) => ProductPage(),
                         ),
                       );
-                      print(MediaQuery.of(context).size.width);
+                      
                     },
                     image: 'asset/images/pizza.jpeg',
                     name: 'CruncyPizza',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SigninButton extends StatelessWidget {
   final image;
@@ -10,24 +11,24 @@ class SigninButton extends StatelessWidget {
     return AnimatedContainer(
       duration: Duration(seconds: 1),
       // clipBehavior: Clip.antiAlias,
-      width: MediaQuery.of(context).size.width * 0.45,
-      padding: EdgeInsets.fromLTRB(1, 6, 1, 6),
+      width: 177.w,
+      padding: EdgeInsets.fromLTRB(1.w, 6.h, 1.w, 6.h),
       decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(width: 1.5),
-          borderRadius: BorderRadius.circular(16)),
+          border: Border.all(width: 1.5.w),
+          borderRadius: BorderRadius.circular(16.r)),
       child: Row(
         children: [
           Image.asset(
             image,
-            width: MediaQuery.of(context).size.width * 0.09,
+            width: 35.34.r,
             // height: 50,
           ),
           Text(
             text,
             style: TextStyle(
               color: Colors.grey[600],
-              fontSize: 14,
+              fontSize: 14.sp,
             ),
           )
         ],
