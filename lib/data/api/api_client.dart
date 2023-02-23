@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class ApiClient extends GetConnect implements GetxService {
   // in general when we talk to server we have token
   // that token should be initialized in api client class
-  late String token;
+  String? token;
   // we must have url that talk to server
   final String appBarUrl;
   //---------------------------------

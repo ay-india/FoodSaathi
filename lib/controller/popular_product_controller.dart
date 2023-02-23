@@ -16,13 +16,13 @@ class PopularProductController extends GetxController {
   Future<void> getPopularPorductList() async {
     Response response = await popularProductRepo.getPopularProductlist();
     if (response.statusCode == 200) {
+      print('got products');
       _popularProductList = [];
       _popularProductList.addAll(Product.fromJson(response.body).products);
       //^^ we can access this one using publc variable of product model that is 'products'.
+      print(_popularProductList);
       update();
-    } else {
-      
-    }
+    } else {}
   }
 }
 
