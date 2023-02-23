@@ -17,7 +17,9 @@ class PopularProductController extends GetxController {
       _popularProductList = [];
       // _popularProductList.addAll();
       update();
-    } else {}
+    } else {
+      
+    }
   }
 }
 
