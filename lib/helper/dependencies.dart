@@ -12,6 +12,7 @@ Future<void> init() async {
 
   //repos
   Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
+  //apiClient: Get.find() getx can find the related class of it.
 
   //controllers
   Get.lazyPut(() => PopularProductController(popularProductRepo: Get.find()));

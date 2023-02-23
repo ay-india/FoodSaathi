@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/auth/auth_page.dart';
+import 'package:food_delivery_app/controller/popular_product_controller.dart';
 import 'package:food_delivery_app/screens/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
 import 'helper/dependencies.dart' as dep;
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.find<PopularProductController>().getPopularPorductList();
     return ScreenUtilInit(
       builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
