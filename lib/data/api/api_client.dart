@@ -1,3 +1,4 @@
+import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:get/get.dart';
 
 // we are using getx for managing our api client controllers and repisotory
@@ -5,7 +6,7 @@ import 'package:get/get.dart';
 class ApiClient extends GetConnect implements GetxService {
   // in general when we talk to server we have token
   // that token should be initialized in api client class
-  String? token;
+  late String token;
   // we must have url that talk to server
   final String appBarUrl;
   //---------------------------------
@@ -19,6 +20,7 @@ class ApiClient extends GetConnect implements GetxService {
     baseUrl = appBarUrl;
     // here we try to get data from the server for 30 seconds
     timeout = Duration(seconds: 30);
+    token = AppConstants.token;
     _mainHeaders = {
       'Content-type': 'application/json; charset=UTF-8',
       'Authorization': 'Bearer $token',
@@ -33,7 +35,10 @@ class ApiClient extends GetConnect implements GetxService {
       return response;
     } catch (e) {
       //if it failed to return data then we return error message
-      return Response(statusCode: 1,statusText: e.toString(),);
+      return Response(
+        statusCode: 1,
+        statusText: e.toString(),
+      );
     }
   }
 }

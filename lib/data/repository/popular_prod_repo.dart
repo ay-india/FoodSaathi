@@ -1,6 +1,7 @@
 // if you load data from internet and we use getx package
 // then class should extends getxservice
 import 'package:food_delivery_app/data/api/api_client.dart';
+import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:get/get.dart';
 
 class PopularProductRepo extends GetxService {
@@ -12,6 +13,6 @@ class PopularProductRepo extends GetxService {
 // repository call apiclient with url and ask for data
   Future<Response> getPopularProductlist() async{
     // return await apiClient.get('end point url');
-    return await apiClient.get('/api/v1/products/popular');
+    return await apiClient.get(AppConstants.popularProductUrl);
   }
 }
