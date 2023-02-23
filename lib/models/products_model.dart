@@ -3,7 +3,7 @@ class Product {
   int? _typeId;
   int? _offset;
   late List<ProductModel> _products;
-  //creating public field , if you have public variable that can be 
+  //creating public field , if you have public variable that can be
   //access from outside of class then before that variable we can use 'get'.
   List<ProductModel> get products => _products;
   Product(
@@ -24,7 +24,8 @@ class Product {
     if (json['products'] != null) {
       _products = <ProductModel>[];
       json['products'].forEach((v) {
-        _products!.add(new ProductModel.fromJson(v));
+        // _products!.add(new ProductModel.fromJson(v));
+        _products.add(new ProductModel.fromJson(v));
       });
     }
   }
