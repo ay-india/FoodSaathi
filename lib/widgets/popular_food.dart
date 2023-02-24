@@ -7,7 +7,7 @@ class PopularFood extends StatelessWidget {
   final String name;
   final String description;
   final String rate;
-  final double rating;
+  final String rating;
   final void Function()? onTap;
   const PopularFood({
     super.key,
@@ -84,6 +84,7 @@ class PopularFood extends StatelessWidget {
                     ),
                     Text(
                       description,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       rate,
@@ -97,7 +98,7 @@ class PopularFood extends StatelessWidget {
                     //flutter_rating_bar pub file
                     RatingBar.builder(
                       itemSize: 27.r,
-                      initialRating: rating,
+                      initialRating: double.parse(rating),
                       minRating: 1,
                       direction: Axis.horizontal,
                       allowHalfRating: true,

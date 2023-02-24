@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/components/food_category.dart';
 import 'package:food_delivery_app/components/search_bar.dart';
 import 'package:food_delivery_app/controller/recommended_product_controller.dart';
+import 'package:food_delivery_app/routes/routes_helper.dart';
 import 'package:food_delivery_app/screens/product_page.dart';
 import 'package:food_delivery_app/screens/user_account.dart';
 import 'package:food_delivery_app/utils/app_constants.dart';
@@ -88,30 +89,53 @@ class _HomePageState extends State<HomePage> {
                   // SizedBox(
                   //   height: 10.h,
                   // ),
-                  GetBuilder<RecommendedProductController>(builder: (recommendedProduct){
-                    return recommendedProduct.isLoaded? ListView.builder(
-                      shrinkWrap: true,
-                      physics: ScrollPhysics(),
-                      itemCount: 5,
-                      itemBuilder: (BuildContext context, int index) {
-                        return PopularFood(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ProductPage(),
-                              ),
+                  GetBuilder<RecommendedProductController>(
+                    builder: (recommendedProduct) {
+                      return recommendedProduct.isLoaded
+                          ? ListView.builder(
+                              shrinkWrap: true,
+                              physics: ScrollPhysics(),
+                              itemCount: recommendedProduct
+                                  .recommendedProductList.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return PopularFood(
+                                  // onTap: () {
+                                  //   Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //       builder: (context) => ProductPage(),
+                                  //     ),
+                                  //   );
+                                  // },
+                                  onTap: () {
+                                    Get.toNamed(RoutesHelper.getPopularFood());
+                                  },
+                                  image: AppConstants.baseUrl +
+                                      "/uploads/" +
+                                      recommendedProduct
+                                          .recommendedProductList[index].img!,
+                                  //ban operator at last is to tell that its value is not null
+                                  name: recommendedProduct
+                                      .recommendedProductList[index].name!,
+                                  description: recommendedProduct
+                                      .recommendedProductList[index]
+                                      .description!,
+
+                                  rate: "\$" +
+                                      recommendedProduct
+                                          .recommendedProductList[index].price!
+                                          .toString(),
+                                  rating: recommendedProduct
+                                      .recommendedProductList[index].stars!
+                                      .toString(),
+                                );
+                              })
+                          : CircularProgressIndicator(
+                              color: Colors.orangeAccent,
+                              strokeWidth: 1,
                             );
-                          },
-                          image: AppConstants.baseUrl+"/uploads/"+recommendedProduct.recommendedProductList[index].img!,
-                          name: 'HamBurger',
-                          description: "Cheesy Mozarelly",
-                          rate: '\$22.7',
-                          rating: 3,
-                        );
-                      }): CircularProgressIndicator(color: Colors.orangeAccent,);
-                  },),
-                  
+                    },
+                  ),
 
                   // PopularFood(
                   //   onTap: () {

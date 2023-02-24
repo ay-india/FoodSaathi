@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/auth/auth_page.dart';
 import 'package:food_delivery_app/controller/popular_product_controller.dart';
+import 'package:food_delivery_app/routes/routes_helper.dart';
 import 'package:food_delivery_app/screens/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
@@ -36,24 +37,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-    // first we have to load the controller in main file then only it can read data 
+    // first we have to load the controller in main file then only it can read data
     Get.find<PopularProductController>().getPopularPorductList();
     Get.find<RecommendedProductController>().getRecommendedPorductList();
     return ScreenUtilInit(
-      builder: (_, child) => MaterialApp(
+      builder: (_, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Food Saathi',
         theme: ThemeData(
           primarySwatch: Colors.orange,
         ),
-        // home: const Onboarding(),
-        initialRoute:
-            initScreen == 0 || initScreen == null ? 'onboard' : 'authpage',
-        routes: {
-          'authpage': (context) => AuthPage(),
-          'onboard': (context) => Onboarding(),
-        },
+        //-------- comment
+        // initialRoute:
+        //     initScreen == 0 || initScreen == null ? 'onboard' : 'authpage',
+        // routes: {
+        //   'authpage': (context) => AuthPage(),
+        //   'onboard': (context) => Onboarding(),
+        // },
+        //-----------
+        initialRoute: RoutesHelper.initial,
+        getPages: RoutesHelper.routes,
       ),
       designSize: const Size(392.727, 780.09),
     );
