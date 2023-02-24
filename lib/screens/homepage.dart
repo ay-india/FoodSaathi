@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                           rate: '\$22.7',
                           rating: 3,
                         );
-                      }),: CircularProgressIndicator(color: Colors.orangeAccent,);
+                      }): CircularProgressIndicator(color: Colors.orangeAccent,);
                   },),
                   
 
