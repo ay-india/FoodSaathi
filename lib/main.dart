@@ -7,6 +7,7 @@ import 'package:food_delivery_app/screens/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'controller/recommended_product_controller.dart';
 import 'firebase_options.dart';
 import 'helper/dependencies.dart' as dep;
 
@@ -35,7 +36,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    // first we have to load the controller in main file then only it can read data 
     Get.find<PopularProductController>().getPopularPorductList();
+    Get.find<RecommendedProductController>().getRecommendedPorductList();
     return ScreenUtilInit(
       builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
