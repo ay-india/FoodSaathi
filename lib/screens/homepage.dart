@@ -8,11 +8,14 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/components/food_category.dart';
 import 'package:food_delivery_app/components/search_bar.dart';
+import 'package:food_delivery_app/controller/recommended_product_controller.dart';
 import 'package:food_delivery_app/screens/product_page.dart';
 import 'package:food_delivery_app/screens/user_account.dart';
+import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
 import 'package:food_delivery_app/widgets/food_category.dart';
 import 'package:food_delivery_app/widgets/popular_food.dart';
+import 'package:get/get.dart';
 
 import '../components/appbar.dart';
 import 'cart_page.dart';
@@ -82,70 +85,79 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 21.sp, color: Color.fromARGB(167, 2, 2, 2)),
                     ),
                   ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
+                  // SizedBox(
+                  //   height: 10.h,
+                  // ),
+                  GetBuilder<RecommendedProductController>(builder: (recommendedProduct){
+                    return recommendedProduct.isLoaded? ListView.builder(
+                      shrinkWrap: true,
+                      physics: ScrollPhysics(),
+                      itemCount: 5,
+                      itemBuilder: (BuildContext context, int index) {
+                        return PopularFood(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProductPage(),
+                              ),
+                            );
+                          },
+                          image: AppConstants.baseUrl+"/uploads/"+recommendedProduct.recommendedProductList[index].img!,
+                          name: 'HamBurger',
+                          description: "Cheesy Mozarelly",
+                          rate: '\$22.7',
+                          rating: 3,
+                        );
+                      }),: CircularProgressIndicator(color: Colors.orangeAccent,);
+                  },),
+                  
 
-                  PopularFood(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProductPage(),
-                        ),
-                      );
-                    },
-                    image: 'asset/images/burger.jpg',
-                    name: 'HamBurger',
-                    description: "Cheesy Mozarelly",
-                    rate: '\$22.7',
-                    rating: 3,
-                  ),
-                  PopularFood(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProductPage(),
-                        ),
-                      );
-                    },
-                    image: 'asset/images/biryani1.jpg',
-                    name: 'Egg Biryani',
-                    description: "With Curd Raitha",
-                    rate: '\$12.7',
-                    rating: 4,
-                  ),
-                  PopularFood(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProductPage(),
-                        ),
-                      );
-                    },
-                    image: 'asset/images/chicken.jpg',
-                    name: 'CrumyChiken',
-                    description: "Spicy Gravy",
-                    rate: '\$32.7',
-                    rating: 5,
-                  ),
-                  PopularFood(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProductPage(),
-                        ),
-                      );
-                    },
-                    image: 'asset/images/pizza.jpeg',
-                    name: 'CruncyPizza',
-                    description: "Cheesy Batter",
-                    rate: '\$25.7',
-                    rating: 3.5,
-                  ),
+                  // PopularFood(
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => ProductPage(),
+                  //       ),
+                  //     );
+                  //   },
+                  //   image: 'asset/images/biryani1.jpg',
+                  //   name: 'Egg Biryani',
+                  //   description: "With Curd Raitha",
+                  //   rate: '\$12.7',
+                  //   rating: 4,
+                  // ),
+                  // PopularFood(
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => ProductPage(),
+                  //       ),
+                  //     );
+                  //   },
+                  //   image: 'asset/images/chicken.jpg',
+                  //   name: 'CrumyChiken',
+                  //   description: "Spicy Gravy",
+                  //   rate: '\$32.7',
+                  //   rating: 5,
+                  // ),
+                  // PopularFood(
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => ProductPage(),
+                  //       ),
+                  //     );
+                  //   },
+                  //   image: 'asset/images/pizza.jpeg',
+                  //   name: 'CruncyPizza',
+                  //   description: "Cheesy Batter",
+                  //   rate: '\$25.7',
+                  //   rating: 3.5,
+                  // ),
                 ],
               ),
             ),

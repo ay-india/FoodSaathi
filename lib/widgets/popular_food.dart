@@ -49,14 +49,14 @@ class PopularFood extends StatelessWidget {
                   // color: Colors.yellow,
                   borderRadius: BorderRadius.circular(10.r),
                   image: DecorationImage(
-                      image: AssetImage(image), fit: BoxFit.cover)),
+                      image: NetworkImage(image), fit: BoxFit.cover)),
             ),
             Expanded(
               child: Container(
                 margin: EdgeInsets.only(
                   top: 6.h,
                 ),
-                padding:  EdgeInsets.only(left: 3.w, top: 4.w),
+                padding: EdgeInsets.only(left: 3.w, top: 4.w),
                 // color: Colors.blue,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
