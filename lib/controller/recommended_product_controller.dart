@@ -1,5 +1,8 @@
 // in general getx service are in repos and apiclient
 
+import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
+import 'package:food_delivery_app/controller/cart_controller.dart';
 import 'package:food_delivery_app/data/repository/popular_prod_repo.dart';
 import 'package:get/get.dart';
 
@@ -13,8 +16,18 @@ class RecommendedProductController extends GetxController {
   List<dynamic> get recommendedProductList => _recommendedProductList;
   //so to access _popularProductList anywhere in ui
   //we need to call
+  late CartController _cart;
+
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
+
+  //this is private
+  int _quantity = 0;
+  //creating public getter for _quantity variable
+  int get quantity => _quantity;
+
+  int _inCartItems = 0;
+  int get inCartItems => _inCartItems;
   Future<void> getRecommendedPorductList() async {
     Response response =
         await recommendedProductRepo.getRecommendedProductlist();
@@ -27,6 +40,47 @@ class RecommendedProductController extends GetxController {
       _isLoaded = true;
       update();
     } else {}
+  }
+
+  void setQuantity(bool isIncrement) {
+    if (isIncrement) {
+      _quantity = checkQuantity(_quantity + 1);
+    } else {
+      _quantity = checkQuantity(_quantity - 1);
+    }
+    update();
+    //need to update it on every tap of incrment and decrement
+  }
+
+  int checkQuantity(int quantity) {
+    if (quantity < 0) {
+      Get.snackbar(
+        "Item Count",
+        "You can't reduce more!",
+        backgroundColor: Color.fromARGB(255, 242, 188, 117),
+        colorText: Colors.white,
+      );
+      return 0;
+    } else if (quantity > 20) {
+      Get.snackbar(
+        "Item Count",
+        "Maximum limit reached!",
+        backgroundColor: Color.fromARGB(255, 243, 185, 110),
+        colorText: Colors.white,
+      );
+      return 20;
+    } else
+      return quantity;
+  }
+
+  void initProduct(CartController cart) {
+    _quantity = 0;
+    _inCartItems = 0;
+    _cart = cart;
+  }
+
+  void addItem(ProductModel product) {
+    _cart.addItem(product, quantity);
   }
 }
 
