@@ -7,7 +7,7 @@ class RoutesHelper {
   static const String initial = '/';
   static const String popularFood = '/popular-food';
   static String getInitial() => '#initial';
-  static String getPopularFood() => '$popularFood';
+  static String getPopularFood(int pageId) => '$popularFood?pageId=$pageId';
 
   static List<GetPage> routes = [
     GetPage(
@@ -17,7 +17,8 @@ class RoutesHelper {
     GetPage(
         name: popularFood,
         page: () {
-          return ProductPage();
+          var pageId = Get.parameters['pageId'];
+          return ProductPage(pageId:int.parse(pageId!));
         },
         transition: Transition.fadeIn),
   ];
