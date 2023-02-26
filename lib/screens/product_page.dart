@@ -18,7 +18,7 @@ class ProductPage extends StatelessWidget {
     var product =
         Get.find<RecommendedProductController>().recommendedProductList[pageId];
     Get.find<RecommendedProductController>()
-        .initProduct(product,Get.find<CartController>());
+        .initProduct(product, Get.find<CartController>());
     return Scaffold(
       body: Stack(
         children: [
@@ -175,64 +175,6 @@ class ProductPage extends StatelessWidget {
                     endIndent: 10.w,
                     thickness: 3,
                   ),
-                  // amount section and add to cart button
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 15.h),
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       Text(
-                  //         '\$${product.price!}',
-                  //         style: TextStyle(
-                  //             fontSize: 19.sp,
-                  //             color: Colors.black,
-                  //             fontWeight: FontWeight.bold),
-                  //       ),
-                  //       ElevatedButton(
-                  //         onPressed: () {
-                  //           Navigator.push(
-                  //             context,
-                  //             MaterialPageRoute(
-                  //               builder: (context) => const CartPage(),
-                  //             ),
-                  //           );
-                  //         },
-                  //         style: ElevatedButton.styleFrom(
-                  //           padding: EdgeInsets.symmetric(
-                  //             horizontal: 13.w,
-                  //             vertical: 10.h,
-                  //           ),
-                  //           shape: RoundedRectangleBorder(
-                  //             borderRadius: BorderRadius.circular(
-                  //               30.r,
-                  //             ),
-                  //           ),
-                  //         ),
-                  //         child:Row(
-                  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //           children: [
-                  //             Text(
-                  //               'Add to Cart',
-                  //               style: TextStyle(
-                  //                 fontWeight: FontWeight.bold,
-                  //                 fontSize: 17.sp,
-                  //               ),
-                  //             ),
-                  //             SizedBox(
-                  //               width: 13.h,
-                  //             ),
-                  //             CircleAvatar(
-                  //               child: Icon(
-                  //                 Icons.add,
-                  //                 color: Colors.grey,
-                  //               ),
-                  //             ),
-                  //           ],
-                  //         ),
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -261,7 +203,7 @@ class ProductPage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: GetBuilder<RecommendedProductController>(
-        builder: (recommendedProudct) {
+        builder: (recommendedProduct) {
           return Container(
             height: 80.h,
             padding: EdgeInsets.only(
@@ -304,21 +246,21 @@ class ProductPage extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              recommendedProudct.setQuantity(false);
+                              recommendedProduct.setQuantity(false);
                             },
                             child: const Icon(
                               Icons.remove,
                             ),
                           ),
                           Text(
-                            recommendedProudct.quantity.toString(),
+                            recommendedProduct.inCartItems.toString(),
                             style: TextStyle(
                               fontSize: 16.sp,
                             ),
                           ),
                           GestureDetector(
                             onTap: () {
-                              recommendedProudct.setQuantity(true);
+                              recommendedProduct.setQuantity(true);
                             },
                             child: Icon(
                               Icons.add,
@@ -332,7 +274,7 @@ class ProductPage extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        recommendedProudct.addItem(product);
+                        recommendedProduct.addItem(product);
                       },
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(

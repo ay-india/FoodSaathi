@@ -27,7 +27,7 @@ class RecommendedProductController extends GetxController {
   int get quantity => _quantity;
 
   int _inCartItems = 0;
-  int get inCartItems => _inCartItems;
+  int get inCartItems => _inCartItems+_quantity;
   Future<void> getRecommendedPorductList() async {
     Response response =
         await recommendedProductRepo.getRecommendedProductlist();
@@ -45,15 +45,22 @@ class RecommendedProductController extends GetxController {
   void setQuantity(bool isIncrement) {
     if (isIncrement) {
       _quantity = checkQuantity(_quantity + 1);
+      print("incartitems:" + _inCartItems.toString());
+      print('tap: + button');
+      print('+: ' + _quantity.toString());
     } else {
       _quantity = checkQuantity(_quantity - 1);
+      print("incartitems:" + _inCartItems.toString());
+      print('tap: - button');
+      print("-: " + _quantity.toString());
     }
+   
     update();
     //need to update it on every tap of incrment and decrement
   }
 
   int checkQuantity(int quantity) {
-    if ((_inCartItems + quantity) < 0) {
+    if (( _inCartItems+quantity) < 0) {
       Get.snackbar(
         "Item Count",
         "You can't reduce more!",
@@ -61,7 +68,7 @@ class RecommendedProductController extends GetxController {
         colorText: Colors.white,
       );
       return 0;
-    } else if ((_inCartItems + quantity) > 20) {
+    } else if (( _inCartItems+quantity) > 20) {
       Get.snackbar(
         "Item Count",
         "Maximum limit reached!",
@@ -69,8 +76,10 @@ class RecommendedProductController extends GetxController {
         colorText: Colors.white,
       );
       return 20;
-    } else
-      return quantity;
+    } else {
+      print("else part" + quantity.toString());
+      return (quantity);
+    }
   }
 
   void initProduct(ProductModel product, CartController cart) {
