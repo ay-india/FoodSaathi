@@ -80,7 +80,20 @@ class RecommendedProductController extends GetxController {
   }
 
   void addItem(ProductModel product) {
-    _cart.addItem(product, quantity);
+    if (_quantity > 0) {
+      _cart.addItem(product, quantity);
+      _quantity = 0;
+      _cart.items.forEach((key, value) {
+        
+      });
+    } else {
+      Get.snackbar(
+        "Item Count",
+        "Atleast add 1 item!",
+        backgroundColor: Color.fromARGB(255, 242, 188, 117),
+        colorText: Colors.white,
+      );
+    }
   }
 }
 
