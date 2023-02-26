@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:food_delivery_app/models/cart_model.dart';
 import 'package:food_delivery_app/models/products_model.dart';
 import 'package:get/get.dart';
@@ -8,34 +9,77 @@ class CartController extends GetxController {
   final CartRepo cartRepo;
   CartController({required this.cartRepo});
   Map<int, CartModel> _items = {};
-  Map<int,CartModel> get items=>_items;
+  Map<int, CartModel> get items => _items;
 
   void addItem(ProductModel product, int quantity) {
+    var totalQuantity = 0;
     if (_items.containsKey(product.id!)) {
       _items.update(product.id!, (value) {
+        totalQuantity = value.quantity! + quantity;
         return CartModel(
           id: value.id,
           name: value.name,
           price: value.price,
           img: value.img,
-          quantity: value.quantity!+quantity,
+          quantity: value.quantity! + quantity,
           isExist: true,
           time: DateTime.now().toString(),
         );
       });
+      if (totalQuantity <= 0) {
+        _items.remove(product.id);
+      }
     } else {
-      _items.putIfAbsent(product.id!, () {
-        print("adding item to the cart");
-        return CartModel(
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          img: product.img,
-          quantity: quantity,
-          isExist: true,
-          time: DateTime.now().toString(),
+      if (quantity > 0) {
+        _items.putIfAbsent(product.id!, () {
+          print("adding item to the cart");
+          return CartModel(
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            img: product.img,
+            quantity: quantity,
+            isExist: true,
+            time: DateTime.now().toString(),
+          );
+        });
+      } else {
+        Get.snackbar(
+          "Item Count",
+          "Atleast add 1 item!",
+          backgroundColor: Color.fromARGB(255, 242, 188, 117),
+          colorText: Colors.white,
         );
+      }
+    }
+  }
+
+  bool existInCart(ProductModel product) {
+    if (_items.containsKey(product.id!)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  int getQuantity(ProductModel product) {
+    var quantity = 0;
+    if (_items.containsKey(product.id)) {
+      _items.forEach((key, value) {
+        if (key == product.id) {
+          quantity = value.quantity!;
+        }
       });
     }
+    return quantity;
+  }
+
+// here totalItems is not a function . It is field which simply returns data.
+  int get totalItems {
+    var totalQuantity = 0;
+    _items.forEach((key, value) {
+      totalQuantity += value.quantity!;
+    });
+    return totalQuantity;
   }
 }

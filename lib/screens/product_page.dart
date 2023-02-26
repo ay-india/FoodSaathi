@@ -18,7 +18,7 @@ class ProductPage extends StatelessWidget {
     var product =
         Get.find<RecommendedProductController>().recommendedProductList[pageId];
     Get.find<RecommendedProductController>()
-        .initProduct(Get.find<CartController>());
+        .initProduct(product,Get.find<CartController>());
     return Scaffold(
       body: Stack(
         children: [

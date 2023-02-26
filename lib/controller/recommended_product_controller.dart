@@ -53,7 +53,7 @@ class RecommendedProductController extends GetxController {
   }
 
   int checkQuantity(int quantity) {
-    if (quantity < 0) {
+    if ((_inCartItems + quantity) < 0) {
       Get.snackbar(
         "Item Count",
         "You can't reduce more!",
@@ -61,7 +61,7 @@ class RecommendedProductController extends GetxController {
         colorText: Colors.white,
       );
       return 0;
-    } else if (quantity > 20) {
+    } else if ((_inCartItems + quantity) > 20) {
       Get.snackbar(
         "Item Count",
         "Maximum limit reached!",
@@ -73,27 +73,35 @@ class RecommendedProductController extends GetxController {
       return quantity;
   }
 
-  void initProduct(CartController cart) {
+  void initProduct(ProductModel product, CartController cart) {
     _quantity = 0;
     _inCartItems = 0;
     _cart = cart;
+    var exist = false;
+    exist = _cart.existInCart(product);
+    if (exist) {
+      _inCartItems = _cart.getQuantity(product);
+    }
   }
 
   void addItem(ProductModel product) {
-    if (_quantity > 0) {
-      _cart.addItem(product, quantity);
-      _quantity = 0;
-      _cart.items.forEach((key, value) {
-        
-      });
-    } else {
+    // if (_quantity > 0) {
+    _cart.addItem(product, quantity);
+    _quantity = 0;
+    _inCartItems = _cart.getQuantity(product);
+    _cart.items.forEach((key, value) {});
+    /*} else {
       Get.snackbar(
         "Item Count",
         "Atleast add 1 item!",
         backgroundColor: Color.fromARGB(255, 242, 188, 117),
         colorText: Colors.white,
       );
-    }
+    }*/
+  }
+
+  int get totalItems {
+    return _cart.totalItems;
   }
 }
 
