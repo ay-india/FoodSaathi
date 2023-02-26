@@ -17,7 +17,8 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var product =
         Get.find<RecommendedProductController>().recommendedProductList[pageId];
-    Get.find<RecommendedProductController>().initProduct(Get.find<CartController>());
+    Get.find<RecommendedProductController>()
+        .initProduct(Get.find<CartController>());
     return Scaffold(
       body: Stack(
         children: [
@@ -331,12 +332,7 @@ class ProductPage extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const CartPage(),
-                          ),
-                        );
+                        recommendedProudct.addItem(product);
                       },
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(
