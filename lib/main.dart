@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/auth/auth_page.dart';
+import 'package:food_delivery_app/controller/cart_controller.dart';
 import 'package:food_delivery_app/controller/popular_product_controller.dart';
 import 'package:food_delivery_app/routes/routes_helper.dart';
 import 'package:food_delivery_app/screens/onboarding_screen.dart';
@@ -40,25 +41,30 @@ class MyApp extends StatelessWidget {
     // first we have to load the controller in main file then only it can read data
     Get.find<PopularProductController>().getPopularPorductList();
     Get.find<RecommendedProductController>().getRecommendedPorductList();
-    return ScreenUtilInit(
-      builder: (_, child) => GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Food Saathi',
-        theme: ThemeData(
-          primarySwatch: Colors.orange,
-        ),
-        //-------- comment
-        // initialRoute:
-        //     initScreen == 0 || initScreen == null ? 'onboard' : 'authpage',
-        // routes: {
-        //   'authpage': (context) => AuthPage(),
-        //   'onboard': (context) => Onboarding(),
-        // },
-        //-----------
-        initialRoute: RoutesHelper.initial,
-        getPages: RoutesHelper.routes,
-      ),
-      designSize: const Size(392.727, 780.09),
-    );
+
+    return GetBuilder<CartController>(builder: (_) {
+      return GetBuilder<RecommendedProductController>(builder: (_) {
+        return ScreenUtilInit(
+          builder: (_, child) => GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Food Saathi',
+            theme: ThemeData(
+              primarySwatch: Colors.orange,
+            ),
+            //-------- comment
+            // initialRoute:
+            //     initScreen == 0 || initScreen == null ? 'onboard' : 'authpage',
+            // routes: {
+            //   'authpage': (context) => AuthPage(),
+            //   'onboard': (context) => Onboarding(),
+            // },
+            //-----------
+            initialRoute: RoutesHelper.initial,
+            getPages: RoutesHelper.routes,
+          ),
+          designSize: const Size(392.727, 780.09),
+        );
+      });
+    });
   }
 }

@@ -57,9 +57,8 @@ class CartController extends GetxController {
   bool existInCart(ProductModel product) {
     if (_items.containsKey(product.id!)) {
       return true;
-    } 
-      return false;
-    
+    }
+    return false;
   }
 
   int getQuantity(ProductModel product) {
@@ -68,6 +67,10 @@ class CartController extends GetxController {
       _items.forEach((key, value) {
         if (key == product.id) {
           quantity = value.quantity!;
+          print("cart get quantity has: " +
+              product.id.toString() +
+              " ,quantity: " +
+              quantity.toString());
         }
       });
     }

@@ -108,7 +108,8 @@ class _HomePageState extends State<HomePage> {
                                   //   );
                                   // },
                                   onTap: () {
-                                    Get.toNamed(RoutesHelper.getPopularFood(index));
+                                    Get.toNamed(
+                                        RoutesHelper.getPopularFood(index));
                                   },
                                   image: AppConstants.baseUrl +
                                       "/uploads/" +
@@ -130,9 +131,13 @@ class _HomePageState extends State<HomePage> {
                                       .toString(),
                                 );
                               })
-                          : CircularProgressIndicator(
-                              color: Colors.orangeAccent,
-                              strokeWidth: 1,
+                          : Container(
+                              height: 300.h,
+                              alignment: Alignment.center,
+                              child: CircularProgressIndicator(
+                                color: Colors.orangeAccent,
+                                strokeWidth: 1,
+                              ),
                             );
                     },
                   ),
