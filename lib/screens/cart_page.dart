@@ -6,6 +6,8 @@ import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:food_delivery_app/widgets/food_added.dart';
 import 'package:get/get.dart';
 
+import '../routes/routes_helper.dart';
+
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
@@ -53,7 +55,7 @@ class _CartPageState extends State<CartPage> {
                     size: 33.sp,
                   ),
                   onTap: () {
-                    Get.to(() => HomePage());
+                    Get.toNamed(RoutesHelper.getInitial());
                   },
                 ),
                 InkWell(
@@ -74,18 +76,20 @@ class _CartPageState extends State<CartPage> {
           Expanded(
             child: GetBuilder<CartController>(
               builder: (cartController) {
+                var cartList = cartController.getItems;
                 return MediaQuery.removePadding(
                   context: context,
                   removeTop: true,
                   child: ListView.builder(
-                    itemCount: cartController.getItems.length,
+                    itemCount: cartList.length,
                     itemBuilder: (_, index) {
                       return FoodAdded(
-                        itemName: cartController.getItems[index].name!,
-                        price: cartController.getItems[index].price.toString(),
+                        itemName: cartList[index].name!,
+                        price: cartList[index].price.toString(),
                         image: AppConstants.baseUrl +
                             AppConstants.uploads +
-                            cartController.getItems[index].img!,
+                            cartList[index].img!,
+                            quantity: cartList[index].quantity.toString(),
                       );
                     },
                   ),

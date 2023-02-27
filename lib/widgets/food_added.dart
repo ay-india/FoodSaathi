@@ -5,11 +5,13 @@ class FoodAdded extends StatelessWidget {
   final String? itemName;
   final String? price;
   final String? image;
+  final String? quantity;
   const FoodAdded(
       {super.key,
       required this.itemName,
       required this.price,
-      required this.image});
+      required this.image,
+      required this.quantity});
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +88,7 @@ class FoodAdded extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            '2',
+                            quantity!,
                             style: TextStyle(
                               fontSize: 23.sp,
                               fontWeight: FontWeight.bold,
