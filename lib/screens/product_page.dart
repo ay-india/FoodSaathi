@@ -75,10 +75,15 @@ class ProductPage extends StatelessWidget {
                             ? Positioned(
                                 top: 0.h,
                                 right: 0.r,
-                                child: Icon(
-                                  Icons.circle,
-                                  size: 20.r,
-                                  color: Colors.blue,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.to(() => CartPage());
+                                  },
+                                  child: Icon(
+                                    Icons.circle,
+                                    size: 20.r,
+                                    color: Colors.blue,
+                                  ),
                                 ),
                               )
                             : Container(),

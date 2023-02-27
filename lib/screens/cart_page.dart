@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/controller/cart_controller.dart';
+import 'package:food_delivery_app/screens/homepage.dart';
+import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:food_delivery_app/widgets/food_added.dart';
+import 'package:get/get.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -49,7 +53,7 @@ class _CartPageState extends State<CartPage> {
                     size: 33.sp,
                   ),
                   onTap: () {
-                    // Navigator.pop(context);
+                    Get.to(() => HomePage());
                   },
                 ),
                 InkWell(
@@ -68,17 +72,28 @@ class _CartPageState extends State<CartPage> {
           // Food added
 
           Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                FoodAdded(),
-                FoodAdded(),
-                FoodAdded(),
-                FoodAdded(),
-                FoodAdded(),
-              ],
+            child: GetBuilder<CartController>(
+              builder: (cartController) {
+                return MediaQuery.removePadding(
+                  context: context,
+                  removeTop: true,
+                  child: ListView.builder(
+                    itemCount: cartController.getItems.length,
+                    itemBuilder: (_, index) {
+                      return FoodAdded(
+                        itemName: cartController.getItems[index].name!,
+                        price: cartController.getItems[index].price.toString(),
+                        image: AppConstants.baseUrl +
+                            AppConstants.uploads +
+                            cartController.getItems[index].img!,
+                      );
+                    },
+                  ),
+                );
+              },
             ),
           ),
+
           Container(
             height: 100.h,
             width: double.infinity,

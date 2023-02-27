@@ -7,6 +7,7 @@ import 'package:food_delivery_app/data/repository/popular_prod_repo.dart';
 import 'package:get/get.dart';
 
 import '../data/repository/recommended_product_repo.dart';
+import '../models/cart_model.dart';
 import '../models/products_model.dart';
 
 class RecommendedProductController extends GetxController {
@@ -115,6 +116,10 @@ class RecommendedProductController extends GetxController {
 
   int get totalItems {
     return _cart.totalItems;
+  }
+
+  List<CartModel> get getItems {
+    return _cart.getItems;
   }
 }
 

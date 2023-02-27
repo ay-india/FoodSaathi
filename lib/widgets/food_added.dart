@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FoodAdded extends StatelessWidget {
-  const FoodAdded({super.key});
+  final String? itemName;
+  final String? price;
+  final String? image;
+  const FoodAdded(
+      {super.key,
+      required this.itemName,
+      required this.price,
+      required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +53,12 @@ class FoodAdded extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Pepperoni Pizza',
+                  itemName!,
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 SizedBox(
                   height: 15.h,
@@ -60,12 +68,12 @@ class FoodAdded extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        Text('Mixed Pizza'),
+                        Text('Chatpatta'),
                         SizedBox(
                           height: 15.h,
                         ),
                         Text(
-                          '\$18.67',
+                          "\$" + price!,
                           style: TextStyle(
                             fontSize: 26.sp,
                             fontWeight: FontWeight.bold,
@@ -98,7 +106,7 @@ class FoodAdded extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Icon(
-                                  Icons.add,
+                                  Icons.remove,
                                   size: 30.sp,
                                 ),
                                 // VerticalDivider(
@@ -125,8 +133,8 @@ class FoodAdded extends StatelessWidget {
             top: 15.h,
             child: CircleAvatar(
               // backgroundColor: Colors.pink,
-              backgroundImage: AssetImage(
-                'asset/images/friedrice1.jpg',
+              backgroundImage: NetworkImage(
+                image!,
               ),
               radius: 50.r,
             ),
