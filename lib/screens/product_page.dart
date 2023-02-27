@@ -51,22 +51,55 @@ class ProductPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const CartPage(),
+                  GetBuilder<RecommendedProductController>(
+                      builder: (controller) {
+                    return Stack(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const CartPage(),
+                            //   ),
+                            // );
+                          },
+                          child: Material(
+                            child: Icon(
+                              Icons.shopping_cart,
+                              size: 33.r,
+                            ),
+                          ),
                         ),
-                      );
-                    },
-                    child: Material(
-                      child: Icon(
-                        Icons.shopping_cart,
-                        size: 33.r,
-                      ),
-                    ),
-                  ),
+                        Get.find<RecommendedProductController>().totalItems >= 1
+                            ? Positioned(
+                                top: 0.h,
+                                right: 0.r,
+                                child: Icon(
+                                  Icons.circle,
+                                  size: 20.r,
+                                  color: Colors.blue,
+                                ),
+                              )
+                            : Container(),
+                        Get.find<RecommendedProductController>().totalItems >= 1
+                            ? Positioned(
+                                top: 3.h,
+                                right: 6.r,
+                                child: Text(
+                                  Get.find<RecommendedProductController>()
+                                      .totalItems
+                                      .toString(),
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              )
+                            : Container(),
+                      ],
+                    );
+                  })
                 ],
               ),
             ),

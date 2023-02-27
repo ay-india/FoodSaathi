@@ -40,13 +40,27 @@ class _CartPageState extends State<CartPage> {
                     Navigator.pop(context);
                   },
                 ),
-                Text(
-                  'Order Details',
-                  style: TextStyle(
-                    fontSize: 27.sp,
-                    fontWeight: FontWeight.bold,
+                SizedBox(
+                  width: 140.w,
+                ),
+                InkWell(
+                  child: Icon(
+                    Icons.home_outlined,
+                    size: 33.sp,
                   ),
-                )
+                  onTap: () {
+                    // Navigator.pop(context);
+                  },
+                ),
+                InkWell(
+                  child: Icon(
+                    Icons.shopping_cart,
+                    size: 33.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                  },
+                ),
               ],
             ),
           ),

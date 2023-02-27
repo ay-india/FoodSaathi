@@ -67,6 +67,10 @@ class RecommendedProductController extends GetxController {
         backgroundColor: Color.fromARGB(255, 242, 188, 117),
         colorText: Colors.white,
       );
+      if (_inCartItems > 0) {
+        _quantity = -_inCartItems;
+        return _quantity;
+      }
       return 0;
     } else if ((_inCartItems + quantity) > 20) {
       Get.snackbar(
@@ -95,7 +99,7 @@ class RecommendedProductController extends GetxController {
 
   void addItem(ProductModel product) {
     print("call to recommended prod controll");
-    // if (_quantity > 0) {
+
     _cart.addItem(product, quantity);
     _quantity = 0;
     _inCartItems = _cart.getQuantity(product);
@@ -105,14 +109,8 @@ class RecommendedProductController extends GetxController {
           " quantity " +
           value.quantity.toString());
     });
-    /*} else {
-      Get.snackbar(
-        "Item Count",
-        "Atleast add 1 item!",
-        backgroundColor: Color.fromARGB(255, 242, 188, 117),
-        colorText: Colors.white,
-      );
-    }*/
+
+    update();
   }
 
   int get totalItems {
