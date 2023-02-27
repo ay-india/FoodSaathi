@@ -17,16 +17,16 @@ Future<void> init() async {
   );
 
   //repos
-  Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
+  Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()),fenix: true);
   //apiClient: Get.find() getx can find the related class of it.
-  Get.lazyPut(() => RecommendedProductRepo(apiClient: Get.find()));
-  Get.lazyPut((() => CartRepo()));
+  Get.lazyPut(() => RecommendedProductRepo(apiClient: Get.find()),fenix: true);
+  Get.lazyPut((() => CartRepo()),fenix: true);
 
   //controllers
-  Get.lazyPut(() => PopularProductController(popularProductRepo: Get.find()));
+  Get.lazyPut(() => PopularProductController(popularProductRepo: Get.find()),fenix:true);
 
   //
   Get.lazyPut(
-      () => RecommendedProductController(recommendedProductRepo: Get.find()));
-  Get.lazyPut(() => CartController());
+      () => RecommendedProductController(recommendedProductRepo: Get.find()),fenix:true);
+  Get.lazyPut(() => CartController(cartRepo: Get.find()),fenix: true);
 }
