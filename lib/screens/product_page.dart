@@ -13,7 +13,8 @@ import '../routes/routes_helper.dart';
 
 class ProductPage extends StatelessWidget {
   int pageId;
-  ProductPage({super.key, required this.pageId});
+  final String page;
+  ProductPage({super.key, required this.pageId, required this.page});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,11 @@ class ProductPage extends StatelessWidget {
                   Material(
                     child: InkWell(
                       onTap: () {
-                        Get.to(() => HomePage());
+                        if (page == 'cartpage') {
+                          Get.toNamed(RoutesHelper.getCartPage());
+                        } else {
+                          Get.toNamed(RoutesHelper.getInitial());
+                        }
                       },
                       child: Container(
                         child: Icon(

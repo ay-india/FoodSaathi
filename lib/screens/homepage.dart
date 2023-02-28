@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                                   // },
                                   onTap: () {
                                     Get.toNamed(
-                                        RoutesHelper.getPopularFood(index));
+                                        RoutesHelper.getPopularFood(index,'home'));
                                   },
                                   image: AppConstants.baseUrl +
                                       "/uploads/" +
