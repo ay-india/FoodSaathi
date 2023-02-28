@@ -1,7 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:food_delivery_app/routes/routes_helper.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,12 +24,27 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     controller =
-        new AnimationController(vsync: this, duration: Duration(seconds: 2));
-        animation= new CurvedAnimation(parent: controller, curve: Curves.linear)
+        new AnimationController(vsync: this, duration: Duration(seconds: 1))
+          ..forward();
+    animation = new CurvedAnimation(parent: controller, curve: Curves.linear);
+    Timer(Duration(seconds: 3), () => Get.offNamed(RoutesHelper.getInitial()));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Column(children: []),);
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        ScaleTransition(
+          scale: animation,
+          child: Center(
+            child: Image.asset(
+              'asset/images/foodSaathi.jpg',
+              width: 259,
+            ),
+          ),
+        ),
+      ]),
+    );
   }
 }

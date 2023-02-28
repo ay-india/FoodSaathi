@@ -7,6 +7,7 @@ import 'package:food_delivery_app/controller/popular_product_controller.dart';
 import 'package:food_delivery_app/routes/routes_helper.dart';
 import 'package:food_delivery_app/screens/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:food_delivery_app/screens/splash_page.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'controller/recommended_product_controller.dart';
@@ -59,12 +60,13 @@ class MyApp extends StatelessWidget {
             //   'onboard': (context) => Onboarding(),
             // },
             //-----------
-            initialRoute: RoutesHelper.initial,
+            // home: SplashScreen(),
+            initialRoute: RoutesHelper.getSplashPage(),
             getPages: RoutesHelper.routes,
           ),
           designSize: const Size(392.727, 780.09),
         );
       });
     });
-  } 
+  }
 }
