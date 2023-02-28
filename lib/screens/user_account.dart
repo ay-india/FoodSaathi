@@ -89,7 +89,10 @@ class UserAccount extends StatelessWidget {
                 child: Column(
                   children: [
                     AccountOptions(text: "My Profile"),
-                    AccountOptions(text: 'Change Password'),
+                    GestureDetector(
+                      onTap: () {},
+                      child: AccountOptions(text: 'Order History'),
+                    ),
                     AccountOptions(text: 'My voucher'),
                     AccountOptions(text: 'Notification'),
                     AccountOptions(text: 'About Us'),

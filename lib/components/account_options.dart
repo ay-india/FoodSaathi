@@ -12,14 +12,14 @@ class AccountOptions extends StatelessWidget {
         left: 2.w,
         right: 3.w,
         top: 3.h,
-        bottom: 10.h,
+        bottom: 17.h,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             text,
-            style: TextStyle(fontSize: 18.sp),
+            style: TextStyle(fontSize: 22.sp),
           ),
           Icon(
             Icons.forward,
