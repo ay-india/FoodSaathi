@@ -40,7 +40,7 @@ class UserAccount extends StatelessWidget {
                   CircleAvatar(
                     radius: 86.r,
                     backgroundImage: NetworkImage(
-                      'https://i.pinimg.com/736x/d0/7a/f6/d07af684a67cd52d2f10acd6208db98f.jpg',
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRr0YlatAy-hrNCQjzZ7fqDzNiXt7HGmzVaA&usqp=CAU',
                     ),
                   ),
 
@@ -114,7 +114,7 @@ class UserAccount extends StatelessWidget {
                           signUserOut();
                           Navigator.of(context).pop();
                         },
-                        child:  Text(
+                        child: Text(
                           "Sign Out",
                           style: TextStyle(
                               fontSize: 25.sp,
