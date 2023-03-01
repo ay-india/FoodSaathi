@@ -7,4 +7,5 @@ class AppConstants {
   static const String recommendedProductUrl = '/api/v1/products/recommended';
   static const String token = 'FStoken';
   static const String uploads = '/uploads/';
+  static const String cartList = 'Cart-list';
 }

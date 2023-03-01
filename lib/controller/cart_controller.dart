@@ -10,10 +10,12 @@ class CartController extends GetxController {
   CartController({required this.cartRepo});
   Map<int, CartModel> _items = {};
   Map<int, CartModel> get items => _items;
+//only for storage and shared preferences
+  List<CartModel> storageItems = [];
 
   void addItem(ProductModel product, int quantity) {
     var totalQuantity = 0;
-    if (_items.containsKey(product.id!)) {
+    if (_items.containsKey(product.id)) {
       _items.update(product.id!, (value) {
         totalQuantity = value.quantity! + quantity;
         return CartModel(
@@ -54,11 +56,12 @@ class CartController extends GetxController {
         );
       }
     }
+    cartRepo.addToCartList(getItems);
     update();
   }
 
   bool existInCart(ProductModel product) {
-    if (_items.containsKey(product.id!)) {
+    if (_items.containsKey(product.id)) {
       return true;
     }
     return false;
@@ -102,5 +105,20 @@ class CartController extends GetxController {
       total += value.quantity! * value.price!;
     });
     return total;
+  }
+
+// this method will only call at first lauch of app to retrieve data
+  List<CartModel> getCartData() {
+    setCart = cartRepo.getCartList(); // it returns set of cart models
+    return storageItems;
+  }
+
+  //with set we have to accept something
+  set setCart(List<CartModel> items) {
+    storageItems = items;
+    print("length of cart Items: " + storageItems.length.toString());
+    for (int i = 0; i <= storageItems.length; i++) {
+      _items.putIfAbsent(storageItems[i].product!.id!, () => storageItems[i]);
+    }
   }
 }

@@ -27,9 +27,9 @@ Future<void> main() async {
     ),
   );
 
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  initScreen = await prefs.getInt('initScreen');
-  await prefs.setInt("initScreen", 1);
+  // SharedPreferences prefs = await SharedPreferences.getInstance();
+  // initScreen = await prefs.getInt('initScreen');
+  // await prefs.setInt("initScreen", 1);
   runApp(const MyApp());
 }
 
@@ -40,8 +40,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // first we have to load the controller in main file then only it can read data
-    Get.find<PopularProductController>().getPopularPorductList();
-    Get.find<RecommendedProductController>().getRecommendedPorductList();
+
+    // Get.find<CartController>().getCartData();
 
     return GetBuilder<CartController>(builder: (_) {
       return GetBuilder<RecommendedProductController>(builder: (_) {
