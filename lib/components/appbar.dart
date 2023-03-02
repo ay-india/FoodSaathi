@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/screens/cart_history.dart';
+import 'package:food_delivery_app/screens/cart_page.dart';
 
 import '../screens/user_account.dart';
 
@@ -45,7 +47,31 @@ class Appbar extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const UserAccount(),
+                      builder: (context) => const CartPage(),
+                    ),
+                  );
+                },
+                child: Icon(
+                  Icons.shopping_cart_checkout_outlined,
+                  size: 38.r,
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30.r),
+              color: Color.fromARGB(255, 190, 182, 177),
+            ),
+          ),
+          Container(
+            height: 45.h,
+            width: 45.w,
+            child: Center(
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CartHistory(),
                     ),
                   );
                 },
