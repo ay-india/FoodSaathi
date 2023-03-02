@@ -108,8 +108,8 @@ class _HomePageState extends State<HomePage> {
                                   //   );
                                   // },
                                   onTap: () {
-                                    Get.toNamed(
-                                        RoutesHelper.getPopularFood(index,'home'));
+                                    Get.toNamed(RoutesHelper.getPopularFood(
+                                        index, 'home'));
                                   },
                                   image: AppConstants.baseUrl +
                                       "/uploads/" +
@@ -229,17 +229,59 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const CartPage(),
-            ),
-          );
-        },
-        child: Icon(Icons.shopping_cart),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     Navigator.push(
+      //       context,
+      //       MaterialPageRoute(
+      //         builder: (context) => const CartPage(),
+      //       ),
+      //     );
+      //   },
+      //   child: Icon(Icons.shopping_cart),
+      // ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   child: GetBuilder<RecommendedProductController>(builder: (controller) {
+      //     return GestureDetector(
+      //       onTap: () {
+      //         Get.toNamed(RoutesHelper.getCartPage());
+      //       },
+      //       child: Stack(
+      //         children: [
+      //           Icon(
+      //             Icons.shopping_cart,
+      //             size: 38.r,
+      //           ),
+      //           controller.totalItems >= 1
+      //               ? Positioned(
+      //                   top: 0.h,
+      //                   right: 0.r,
+      //                   child: Icon(
+      //                     Icons.circle,
+      //                     size: 20.r,
+      //                     color: Colors.blue,
+      //                   ),
+      //                 )
+      //               : Container(),
+      //           controller.totalItems >= 1
+      //               ? Positioned(
+      //                   top: 3.h,
+      //                   right: 6.r,
+      //                   child: Text(
+      //                     controller.totalItems.toString(),
+      //                     style: TextStyle(
+      //                       fontSize: 12.sp,
+      //                       color: Colors.white,
+      //                     ),
+      //                   ),
+      //                 )
+      //               : Container(),
+      //         ],
+      //       ),
+      //     );
+      //   }),
+      // ),
     );
   }
 }

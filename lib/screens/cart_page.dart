@@ -136,7 +136,8 @@ class _CartPageState extends State<CartPage> {
                                     BoxShadow(
                                       blurRadius: 2.r,
                                       offset: Offset(0, 3),
-                                      color: Colors.grey.withOpacity(0.3),
+                                      color: Color.fromARGB(255, 215, 215, 213)
+                                          .withOpacity(0.3),
                                       spreadRadius: 2.r,
                                     ),
                                   ],
@@ -294,23 +295,29 @@ class _CartPageState extends State<CartPage> {
                   indent: 16.w,
                   endIndent: 16.w,
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: 15.w, right: 15.w),
-                  alignment: Alignment.center,
-                  height: 40.h,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(
-                      30.r,
+                GestureDetector(
+                  onTap: () {
+                    print('checkout tapped');
+                    cartController.addToHistory();
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 15.w, right: 15.w),
+                    alignment: Alignment.center,
+                    height: 40.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(
+                        30.r,
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    'CHECKOUT',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 23.sp,
+                    child: Text(
+                      'CHECKOUT',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 23.sp,
+                      ),
                     ),
                   ),
                 )
