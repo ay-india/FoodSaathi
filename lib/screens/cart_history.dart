@@ -185,12 +185,12 @@ class CartHistory extends StatelessWidget {
                                                                 j]))));
                                               }
                                             }
-                                            Get.find<CartController>()
-                                                .setItems = morOrder;
-                                            Get.find<CartController>()
-                                                .addToCartList();
-                                            Get.toNamed(
-                                                RoutesHelper.getCartPage());
+                                            // Get.find<CartController>()
+                                            //     .setItems = morOrder;
+                                            // Get.find<CartController>()
+                                            //     .addToCartList();
+                                            // Get.toNamed(
+                                            //     RoutesHelper.getCartPage());
                                           },
                                           child: Container(
                                             padding: EdgeInsets.all(4.sp),
