@@ -285,7 +285,7 @@ class _CartPageState extends State<CartPage> {
                           },
                         ),
                       )
-                    : NoDataPage(text: 'hello');
+                    : NoDataPage(text: '');
               },
             ),
           ),
@@ -295,51 +295,57 @@ class _CartPageState extends State<CartPage> {
               height: 100.h,
               width: double.infinity,
               padding: EdgeInsets.all(4.sp),
-              color: Color.fromARGB(255, 238, 237, 237),
-              child:
-                  Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                Text(
-                  'Total: \$' + cartController.totalAmount.toString(),
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 0.h,
-                ),
-                Divider(
-                  thickness: 3.sp,
-                  indent: 16.w,
-                  endIndent: 16.w,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print('checkout tapped');
-                    cartController.addToHistory();
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(left: 15.w, right: 15.w),
-                    alignment: Alignment.center,
-                    height: 40.h,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.circular(
-                        30.r,
-                      ),
-                    ),
-                    child: Text(
-                      'CHECKOUT',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 23.sp,
-                      ),
-                    ),
-                  ),
-                )
-              ]),
+              color: cartController.getItems.length > 0
+                  ? Color.fromARGB(255, 238, 237, 237)
+                  : Color.fromARGB(255, 249, 248, 248),
+              child: cartController.getItems.length > 0
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Total: \$' + cartController.totalAmount.toString(),
+                          style: TextStyle(
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 0.h,
+                        ),
+                        Divider(
+                          thickness: 3.sp,
+                          indent: 16.w,
+                          endIndent: 16.w,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            print('checkout tapped');
+                            cartController.addToHistory();
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(left: 15.w, right: 15.w),
+                            alignment: Alignment.center,
+                            height: 40.h,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.orange,
+                              borderRadius: BorderRadius.circular(
+                                30.r,
+                              ),
+                            ),
+                            child: Text(
+                              'CHECKOUT',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 23.sp,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  : Container(),
             );
           })
         ],
