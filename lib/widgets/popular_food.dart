@@ -25,7 +25,7 @@ class PopularFood extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.all(10.r),
-        height: 200.h,
+        height: 160.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.r),
           // boxShadow: [
@@ -115,28 +115,33 @@ class PopularFood extends StatelessWidget {
                     SizedBox(
                       height: 10.h,
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 34.h,
-                        width: 80.w,
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10.r),
-                            bottomRight: Radius.circular(10.r),
-                          ),
-                        ),
-                        child: Text(
-                          'Add',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    )
+                    // GestureDetector(
+                    //   onTap: (){
+
+                    //   },
+                    //   child: Align(
+                    //     alignment: Alignment.bottomRight,
+                    //     child: Container(
+                    //       alignment: Alignment.center,
+                    //       height: 34.h,
+                    //       width: 80.w,
+                    //       decoration: BoxDecoration(
+                    //         color: Colors.red,
+                    //         borderRadius: BorderRadius.only(
+                    //           topLeft: Radius.circular(10.r),
+                    //           bottomRight: Radius.circular(10.r),
+                    //         ),
+                    //       ),
+                    //       child: const Text(
+                    //         'Add',
+                    //         style: TextStyle(
+                    //           color: Colors.white,
+                    //           fontWeight: FontWeight.bold,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               ),

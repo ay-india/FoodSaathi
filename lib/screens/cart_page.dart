@@ -10,14 +10,10 @@ import 'package:get/get.dart';
 
 import '../routes/routes_helper.dart';
 
-class CartPage extends StatefulWidget {
-  const CartPage({super.key});
+class CartPage extends StatelessWidget {
+  final String page;
+  const CartPage({super.key, required this.page});
 
-  @override
-  State<CartPage> createState() => _CartPageState();
-}
-
-class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,15 +35,17 @@ class _CartPageState extends State<CartPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                InkWell(
-                  child: Icon(
-                    Icons.arrow_back,
-                    size: 33.sp,
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
+                page == 'product'
+                    ? InkWell(
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 33.sp,
+                        ),
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                      )
+                    : Container(),
                 SizedBox(
                   width: 140.w,
                 ),
@@ -57,7 +55,7 @@ class _CartPageState extends State<CartPage> {
                     size: 33.sp,
                   ),
                   onTap: () {
-                    Get.toNamed(RoutesHelper.getInitial());
+                    Get.toNamed(RoutesHelper.getFirstPage());
                   },
                 ),
                 InkWell(
@@ -178,7 +176,7 @@ class _CartPageState extends State<CartPage> {
                                                     height: 15.h,
                                                   ),
                                                   Text(
-                                                    "\$" +
+                                                    "₹" +
                                                         cartList[index]
                                                             .price
                                                             .toString(),
@@ -303,7 +301,7 @@ class _CartPageState extends State<CartPage> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          'Total: \$' + cartController.totalAmount.toString(),
+                          'Total: ₹' + cartController.totalAmount.toString(),
                           style: TextStyle(
                             fontSize: 24.sp,
                             fontWeight: FontWeight.bold,

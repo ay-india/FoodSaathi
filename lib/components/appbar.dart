@@ -38,54 +38,54 @@ class Appbar extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            height: 45.h,
-            width: 45.w,
-            child: Center(
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CartPage(),
-                    ),
-                  );
-                },
-                child: Icon(
-                  Icons.shopping_cart_checkout_outlined,
-                  size: 38.r,
-                ),
-              ),
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.r),
-              color: Color.fromARGB(255, 190, 182, 177),
-            ),
-          ),
-          Container(
-            height: 45.h,
-            width: 45.w,
-            child: Center(
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CartHistory(),
-                    ),
-                  );
-                },
-                child: Icon(
-                  Icons.account_circle,
-                  size: 38.r,
-                ),
-              ),
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.r),
-              color: Color.fromARGB(255, 190, 182, 177),
-            ),
-          )
+          // Container(
+          //   height: 45.h,
+          //   width: 45.w,
+          //   child: Center(
+          //     child: InkWell(
+          //       onTap: () {
+          //         Navigator.push(
+          //           context,
+          //           MaterialPageRoute(
+          //             builder: (context) => const CartPage(),
+          //           ),
+          //         );
+          //       },
+          //       child: Icon(
+          //         Icons.shopping_cart_checkout_outlined,
+          //         size: 38.r,
+          //       ),
+          //     ),
+          //   ),
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(30.r),
+          //     color: Color.fromARGB(255, 190, 182, 177),
+          //   ),
+          // ),
+          // Container(
+          //   height: 45.h,
+          //   width: 45.w,
+          //   child: Center(
+          //     child: InkWell(
+          //       onTap: () {
+          //         Navigator.push(
+          //           context,
+          //           MaterialPageRoute(
+          //             builder: (context) => const CartHistory(),
+          //           ),
+          //         );
+          //       },
+          //       child: Icon(
+          //         Icons.account_circle,
+          //         size: 38.r,
+          //       ),
+          //     ),
+          //   ),
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(30.r),
+          //     color: Color.fromARGB(255, 190, 182, 177),
+          //   ),
+          // )
         ],
       ),
     );

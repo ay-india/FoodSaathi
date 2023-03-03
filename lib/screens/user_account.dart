@@ -20,14 +20,14 @@ class UserAccount extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(
-                Icons.arrow_back,
-              ),
-            ),
+            // InkWell(
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //   },
+            //   child: const Icon(
+            //     Icons.arrow_back,
+            //   ),
+            // ),
             Container(
               alignment: Alignment.center,
               padding: EdgeInsets.all(30.r),

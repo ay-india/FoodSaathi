@@ -37,7 +37,8 @@ class _SplashScreenState extends State<SplashScreen>
         new AnimationController(vsync: this, duration: Duration(seconds: 1))
           ..forward();
     animation = new CurvedAnimation(parent: controller, curve: Curves.linear);
-    Timer(Duration(seconds: 3), () => Get.offNamed(RoutesHelper.getInitial()));
+    Timer(
+        Duration(seconds: 3), () => Get.offNamed(RoutesHelper.getFirstPage()));
   }
 
   @override

@@ -13,7 +13,7 @@ import '../routes/routes_helper.dart';
 
 class ProductPage extends StatelessWidget {
   int pageId;
-  
+
   ProductPage({super.key, required this.pageId});
 
   @override
@@ -42,7 +42,7 @@ class ProductPage extends StatelessWidget {
                   Material(
                     child: InkWell(
                       onTap: () {
-                        Get.toNamed(RoutesHelper.getInitial());
+                        Get.toNamed(RoutesHelper.getFirstPage());
                         // if (page == 'cartpage') {
                         //   Get.toNamed(RoutesHelper.getCartPage());
                         // } else {
@@ -61,7 +61,7 @@ class ProductPage extends StatelessWidget {
                       builder: (controller) {
                     return GestureDetector(
                       onTap: () {
-                        Get.toNamed(RoutesHelper.getCartPage());
+                        Get.toNamed(RoutesHelper.getCartPage('product'));
                       },
                       child: Stack(
                         children: [

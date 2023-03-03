@@ -43,27 +43,6 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 35.h,
             ),
-            //this is for location and account part
-            // const Appbar(),
-
-            //for search bar
-            // const SearchBar(),
-
-            // Categoris part
-            // const FoodCategoryPart(),
-
-            // Popular food
-
-            // Container(
-            //   margin: EdgeInsets.only(left: 15),
-            //   alignment: Alignment.topLeft,
-            //   color: Colors.green,
-            //   child: Text(
-            //     'Popular Food',
-            //     style: TextStyle(fontSize: 21),
-            //   ),
-            // ),
-
             Expanded(
               child: ListView(
                 padding: EdgeInsets.zero,
@@ -99,14 +78,6 @@ class _HomePageState extends State<HomePage> {
                                   .recommendedProductList.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return PopularFood(
-                                  // onTap: () {
-                                  //   Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //       builder: (context) => ProductPage(),
-                                  //     ),
-                                  //   );
-                                  // },
                                   onTap: () {
                                     Get.toNamed(RoutesHelper.getPopularFood(
                                         index, 'home'));
@@ -122,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                                       .recommendedProductList[index]
                                       .description!,
 
-                                  rate: "\$" +
+                                  rate: "\₹" +
                                       recommendedProduct
                                           .recommendedProductList[index].price!
                                           .toString(),
@@ -141,147 +112,12 @@ class _HomePageState extends State<HomePage> {
                             );
                     },
                   ),
-
-                  // PopularFood(
-                  //   onTap: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //         builder: (context) => ProductPage(),
-                  //       ),
-                  //     );
-                  //   },
-                  //   image: 'asset/images/biryani1.jpg',
-                  //   name: 'Egg Biryani',
-                  //   description: "With Curd Raitha",
-                  //   rate: '\$12.7',
-                  //   rating: 4,
-                  // ),
-                  // PopularFood(
-                  //   onTap: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //         builder: (context) => ProductPage(),
-                  //       ),
-                  //     );
-                  //   },
-                  //   image: 'asset/images/chicken.jpg',
-                  //   name: 'CrumyChiken',
-                  //   description: "Spicy Gravy",
-                  //   rate: '\$32.7',
-                  //   rating: 5,
-                  // ),
-                  // PopularFood(
-                  //   onTap: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //         builder: (context) => ProductPage(),
-                  //       ),
-                  //     );
-                  //   },
-                  //   image: 'asset/images/pizza.jpeg',
-                  //   name: 'CruncyPizza',
-                  //   description: "Cheesy Batter",
-                  //   rate: '\$25.7',
-                  //   rating: 3.5,
-                  // ),
                 ],
               ),
             ),
-
-            // Expanded(
-            //   child: Container(
-            //     alignment: Alignment.topLeft,
-            //     // padding: EdgeInsets.all(10),
-            //     margin: EdgeInsets.only(left: 10),
-            //     child: Column(
-            //       crossAxisAlignment: CrossAxisAlignment.start,
-            //       // mainAxisAlignment: MainAxisAlignment.start,
-            //       children: [
-            //         const Text(
-            //           'Popular Food',
-            //           style: TextStyle(
-            //             fontSize: 23,
-            //             color: Color.fromARGB(167, 2, 2, 2),
-            //           ),
-            //         ),
-            //         ListView(
-            //           // shrinkWrap: true,
-            //           children: [
-            //             Container(
-            //               height: 200,
-            //               margin: EdgeInsets.all(10),
-            //               color: Colors.red,
-            //             ),
-            //             Container(
-            //               height: 200,
-            //               margin: EdgeInsets.all(10),
-            //               color: Colors.red,
-            //             ),
-            //           ],
-            //         )
-            //       ],
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     Navigator.push(
-      //       context,
-      //       MaterialPageRoute(
-      //         builder: (context) => const CartPage(),
-      //       ),
-      //     );
-      //   },
-      //   child: Icon(Icons.shopping_cart),
-      // ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //   child: GetBuilder<RecommendedProductController>(builder: (controller) {
-      //     return GestureDetector(
-      //       onTap: () {
-      //         Get.toNamed(RoutesHelper.getCartPage());
-      //       },
-      //       child: Stack(
-      //         children: [
-      //           Icon(
-      //             Icons.shopping_cart,
-      //             size: 38.r,
-      //           ),
-      //           controller.totalItems >= 1
-      //               ? Positioned(
-      //                   top: 0.h,
-      //                   right: 0.r,
-      //                   child: Icon(
-      //                     Icons.circle,
-      //                     size: 20.r,
-      //                     color: Colors.blue,
-      //                   ),
-      //                 )
-      //               : Container(),
-      //           controller.totalItems >= 1
-      //               ? Positioned(
-      //                   top: 3.h,
-      //                   right: 6.r,
-      //                   child: Text(
-      //                     controller.totalItems.toString(),
-      //                     style: TextStyle(
-      //                       fontSize: 12.sp,
-      //                       color: Colors.white,
-      //                     ),
-      //                   ),
-      //                 )
-      //               : Container(),
-      //         ],
-      //       ),
-      //     );
-      //   }),
-      // ),
     );
   }
 }
