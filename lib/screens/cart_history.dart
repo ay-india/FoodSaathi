@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/controller/cart_controller.dart';
+import 'package:food_delivery_app/routes/routes_helper.dart';
 import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -188,6 +189,8 @@ class CartHistory extends StatelessWidget {
                                                 .setItems = morOrder;
                                             Get.find<CartController>()
                                                 .addToCartList();
+                                            Get.toNamed(
+                                                RoutesHelper.getCartPage());
                                           },
                                           child: Container(
                                             padding: EdgeInsets.all(4.sp),
