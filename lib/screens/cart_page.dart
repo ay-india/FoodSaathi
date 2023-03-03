@@ -235,11 +235,7 @@ class CartPage extends StatelessWidget {
                                                               size: 30.sp,
                                                             ),
                                                           ),
-                                                          // VerticalDivider(
-                                                          //   thickness: 3,
-                                                          //   // color: Colors.white,
-                                                          //   width: 2,
-                                                          // ),
+                                                         
                                                           GestureDetector(
                                                             onTap: () {
                                                               cartController.addItem(
