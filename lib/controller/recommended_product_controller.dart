@@ -3,7 +3,7 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controller/cart_controller.dart';
-import 'package:food_delivery_app/data/repository/popular_prod_repo.dart';
+
 import 'package:get/get.dart';
 
 import '../data/repository/recommended_product_repo.dart';

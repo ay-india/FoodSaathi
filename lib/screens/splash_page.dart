@@ -9,7 +9,6 @@ import 'package:food_delivery_app/routes/routes_helper.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../controller/popular_product_controller.dart';
 import '../controller/recommended_product_controller.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -25,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController controller;
 
   Future<void> _loadResource() async {
-    await Get.find<PopularProductController>().getPopularPorductList();
+
     await Get.find<RecommendedProductController>().getRecommendedPorductList();
   }
 

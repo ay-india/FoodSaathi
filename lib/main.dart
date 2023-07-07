@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/auth/auth_page.dart';
 import 'package:food_delivery_app/controller/cart_controller.dart';
-import 'package:food_delivery_app/controller/popular_product_controller.dart';
 import 'package:food_delivery_app/routes/routes_helper.dart';
 import 'package:food_delivery_app/screens/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';

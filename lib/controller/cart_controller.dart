@@ -90,6 +90,7 @@ class CartController extends GetxController {
       totalQuantity += value.quantity!;
     });
     return totalQuantity;
+    update();
   }
 
 // returns the list of items that are stored in _items variable
